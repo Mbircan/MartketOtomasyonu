@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0EF262B-7CEB-4F90-B4C1-F25F30DA1280}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MartketOtomasyonu</RootNamespace>
+    <AssemblyName>MartketOtomasyonu</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnaMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaMenu.Designer.cs">
+      <DependentUpon>AnaMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\MyContext.cs" />
+    <Compile Include="Entities\Kategori.cs" />
+    <Compile Include="Entities\Siparis.cs" />
+    <Compile Include="Entities\SiparisDetay.cs" />
+    <Compile Include="Entities\Urun.cs" />
+    <Compile Include="Forms\FormKategoriler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormKategoriler.Designer.cs">
+      <DependentUpon>FormKategoriler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSiparis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSiparis.Designer.cs">
+      <DependentUpon>FormSiparis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSiparisYonetimi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSiparisYonetimi.Designer.cs">
+      <DependentUpon>FormSiparisYonetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormStokYonetimi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormStokYonetimi.Designer.cs">
+      <DependentUpon>FormStokYonetimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormUrunler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUrunler.Designer.cs">
+      <DependentUpon>FormUrunler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801152309316_a1.cs" />
+    <Compile Include="Migrations\201801152309316_a1.Designer.cs">
+      <DependentUpon>201801152309316_a1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161349316_a2.cs" />
+    <Compile Include="Migrations\201801161349316_a2.Designer.cs">
+      <DependentUpon>201801161349316_a2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161404505_a3.cs" />
+    <Compile Include="Migrations\201801161404505_a3.Designer.cs">
+      <DependentUpon>201801161404505_a3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161558277_a4.cs" />
+    <Compile Include="Migrations\201801161558277_a4.Designer.cs">
+      <DependentUpon>201801161558277_a4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801161611322_a5.cs" />
+    <Compile Include="Migrations\201801161611322_a5.Designer.cs">
+      <DependentUpon>201801161611322_a5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801171336050_a6.cs" />
+    <Compile Include="Migrations\201801171336050_a6.Designer.cs">
+      <DependentUpon>201801171336050_a6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801171514175_a7.cs" />
+    <Compile Include="Migrations\201801171514175_a7.Designer.cs">
+      <DependentUpon>201801171514175_a7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801171531236_a8.cs" />
+    <Compile Include="Migrations\201801171531236_a8.Designer.cs">
+      <DependentUpon>201801171531236_a8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180959101_a9.cs" />
+    <Compile Include="Migrations\201801180959101_a9.Designer.cs">
+      <DependentUpon>201801180959101_a9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SepetViewModel.cs" />
+    <Compile Include="ViewModels\SiparisViewModel.cs" />
+    <Compile Include="ViewModels\StokViewModel.cs" />
+    <Compile Include="ViewModels\UrunViewModel.cs" />
+    <EmbeddedResource Include="AnaMenu.resx">
+      <DependentUpon>AnaMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormKategoriler.resx">
+      <DependentUpon>FormKategoriler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSiparis.resx">
+      <DependentUpon>FormSiparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSiparisYonetimi.resx">
+      <DependentUpon>FormSiparisYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormStokYonetimi.resx">
+      <DependentUpon>FormStokYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUrunler.resx">
+      <DependentUpon>FormUrunler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801152309316_a1.resx">
+      <DependentUpon>201801152309316_a1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161349316_a2.resx">
+      <DependentUpon>201801161349316_a2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161404505_a3.resx">
+      <DependentUpon>201801161404505_a3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161558277_a4.resx">
+      <DependentUpon>201801161558277_a4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801161611322_a5.resx">
+      <DependentUpon>201801161611322_a5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801171336050_a6.resx">
+      <DependentUpon>201801171336050_a6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801171514175_a7.resx">
+      <DependentUpon>201801171514175_a7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801171531236_a8.resx">
+      <DependentUpon>201801171531236_a8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180959101_a9.resx">
+      <DependentUpon>201801180959101_a9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
