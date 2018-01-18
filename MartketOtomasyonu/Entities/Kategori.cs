@@ -20,6 +20,7 @@ namespace MartketOtomasyonu.Entities
         public string KategoriAdi { get; set; }
         [Column("Açıklama")]
         public string Aciklama { get; set; }
+        public decimal KDV { get; set; }
         public virtual List<Urun> Urunler { get; set; } = new List<Urun>();
     }
 }

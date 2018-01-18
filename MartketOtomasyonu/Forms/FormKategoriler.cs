@@ -37,7 +37,7 @@ namespace MartketOtomasyonu.Forms
             {
                 MessageBox.Show(ex.Message); ;
             }
-        }   
+        }
 
         private void btnUrunler_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace MartketOtomasyonu.Forms
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnKategoriler_Click(object sender, EventArgs e)
@@ -67,6 +67,7 @@ namespace MartketOtomasyonu.Forms
             Kategori kategori = new Kategori()
             {
                 KategoriAdi = txtKategoriAdi.Text,
+                KDV = nKDV.Value,
                 Aciklama = rtxtAciklama.Text
             };
             MyContext db = new MyContext();
@@ -111,6 +112,7 @@ namespace MartketOtomasyonu.Forms
                 }
                 SeciliKategori.KategoriAdi = txtKategoriAdi.Text;
                 SeciliKategori.Aciklama = rtxtAciklama.Text;
+                SeciliKategori.KDV = nKDV.Value;
                 db.SaveChanges();
                 VerileriGetir();
                 lstKategoriler.SelectedValue = SeciliKategori.KategoriID;
@@ -164,6 +166,7 @@ namespace MartketOtomasyonu.Forms
             var SeciliKategori = lstKategoriler.SelectedItem as Kategori;
             txtKategoriAdi.Text = SeciliKategori.KategoriAdi;
             rtxtAciklama.Text = SeciliKategori.Aciklama;
+            nKDV.Value = SeciliKategori.KDV;
         }
 
         private void btnSiparisler_Click(object sender, EventArgs e)

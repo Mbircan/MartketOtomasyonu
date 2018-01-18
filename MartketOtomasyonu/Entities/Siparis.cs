@@ -13,7 +13,6 @@ namespace MartketOtomasyonu.Entities
     {
         [Key]
         public int SiparisID { get; set; }
-        public DateTime SiparisTarihi { get; set; } = DateTime.Now;
         public DateTime? TeslimTarihi { get; set; }
         public string OdemeSekli { get; set; }
 

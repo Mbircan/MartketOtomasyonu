@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MartketOtomasyonu.DAL;
 using MartketOtomasyonu.Entities;
 using System.IO;
+using MartketOtomasyonu.ViewModels;
 
 namespace MartketOtomasyonu.Forms
 {
@@ -67,6 +68,7 @@ namespace MartketOtomasyonu.Forms
             }
             try
             {
+                var seciliKategori = cmbKategori.SelectedItem as Kategori;
                 Urun urun = new Urun()
                 {
                     UrunAdi = txtUrunAdi.Text,
@@ -74,6 +76,7 @@ namespace MartketOtomasyonu.Forms
                     Fiyat = nFiyat.Value,
                     KategoriID = (int)cmbKategori.SelectedValue,
                     BarkodID = txtBarkod.Text,
+                     KDV=seciliKategori.KDV,
                     UrunResmi = resimDosyası                        
                 };
                 MyContext db = new MyContext();
@@ -104,9 +107,11 @@ namespace MartketOtomasyonu.Forms
                     VerileriGetir();
                     return;
                 }
+                var seciliKategori = cmbKategori.SelectedItem as Kategori;
                 SeciliUrun.UrunAdi = txtUrunAdi.Text;
                 SeciliUrun.Fiyat = nFiyat.Value;
                 SeciliUrun.KategoriID = Convert.ToInt32(cmbKategori.SelectedValue);
+                SeciliUrun.KDV = seciliKategori.KDV;
                 SeciliUrun.UrunResmi = resimDosyası;
                 db.SaveChanges();
                 VerileriGetir();
@@ -156,6 +161,7 @@ namespace MartketOtomasyonu.Forms
             nFiyat.Value = SeciliUrun.Fiyat;
             nStok.Value = SeciliUrun.Stok;
             cmbKategori.SelectedValue = SeciliUrun.KategoriID;
+            txtBarkod.Text = SeciliUrun.BarkodID;
             if (SeciliUrun.UrunResmi != null)
             {
                 try
@@ -174,6 +180,22 @@ namespace MartketOtomasyonu.Forms
 
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
+            var ara = txtAra.Text.ToLower();
+            MyContext db = new MyContext();
+            var sonuc = from ur in db.Urunler
+                        where (ur.UrunAdi.ToLower().Contains(ara) || ur.Kategori.KategoriAdi.ToLower().Contains(ara))
+                        orderby ur.UrunAdi ascending
+                        select new UrunViewModel
+                        {
+                            UrunID = ur.UrunID,
+                            KategoriAdi = ur.Kategori.KategoriAdi,
+                            UrunAdi = ur.UrunAdi,
+                            Fiyat = ur.Fiyat,
+                            Stok = ur.Stok,
+                            KDV = ur.KDV,
+                            BarkodID = ur.BarkodID
+                        };
+            lstUrunler.DataSource = sonuc.ToList();
 
         }
 

@@ -37,14 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.lstKategoriler = new System.Windows.Forms.ListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nKDV = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nKDV)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSil
             // 
             this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSil.Location = new System.Drawing.Point(524, 300);
+            this.btnSil.Location = new System.Drawing.Point(699, 369);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(74, 45);
+            this.btnSil.Size = new System.Drawing.Size(99, 55);
             this.btnSil.TabIndex = 34;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
@@ -53,9 +57,10 @@
             // btnGuncelle
             // 
             this.btnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGuncelle.Location = new System.Drawing.Point(437, 300);
+            this.btnGuncelle.Location = new System.Drawing.Point(583, 369);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(74, 45);
+            this.btnGuncelle.Size = new System.Drawing.Size(99, 55);
             this.btnGuncelle.TabIndex = 33;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
@@ -64,9 +69,10 @@
             // btnEkle
             // 
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEkle.Location = new System.Drawing.Point(341, 300);
+            this.btnEkle.Location = new System.Drawing.Point(455, 369);
+            this.btnEkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEkle.Name = "btnEkle";
-            this.btnEkle.Size = new System.Drawing.Size(74, 45);
+            this.btnEkle.Size = new System.Drawing.Size(99, 55);
             this.btnEkle.TabIndex = 32;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
@@ -75,9 +81,10 @@
             // rtxtAciklama
             // 
             this.rtxtAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rtxtAciklama.Location = new System.Drawing.Point(419, 111);
+            this.rtxtAciklama.Location = new System.Drawing.Point(559, 157);
+            this.rtxtAciklama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rtxtAciklama.Name = "rtxtAciklama";
-            this.rtxtAciklama.Size = new System.Drawing.Size(196, 133);
+            this.rtxtAciklama.Size = new System.Drawing.Size(260, 163);
             this.rtxtAciklama.TabIndex = 31;
             this.rtxtAciklama.Text = "";
             // 
@@ -85,36 +92,40 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(326, 111);
+            this.label2.Location = new System.Drawing.Point(435, 157);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 18);
+            this.label2.Size = new System.Drawing.Size(86, 24);
             this.label2.TabIndex = 30;
             this.label2.Text = "Açıklama";
             // 
             // txtKategoriAdi
             // 
             this.txtKategoriAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtKategoriAdi.Location = new System.Drawing.Point(419, 46);
+            this.txtKategoriAdi.Location = new System.Drawing.Point(559, 57);
+            this.txtKategoriAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
-            this.txtKategoriAdi.Size = new System.Drawing.Size(196, 24);
+            this.txtKategoriAdi.Size = new System.Drawing.Size(260, 28);
             this.txtKategoriAdi.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(307, 49);
+            this.label1.Location = new System.Drawing.Point(409, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 18);
+            this.label1.Size = new System.Drawing.Size(112, 24);
             this.label1.TabIndex = 28;
             this.label1.Text = "Kategori Adı";
             // 
             // txtAra
             // 
             this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtAra.Location = new System.Drawing.Point(18, 14);
+            this.txtAra.Location = new System.Drawing.Point(24, 17);
+            this.txtAra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAra.Name = "txtAra";
-            this.txtAra.Size = new System.Drawing.Size(274, 24);
+            this.txtAra.Size = new System.Drawing.Size(364, 28);
             this.txtAra.TabIndex = 26;
             this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             // 
@@ -122,18 +133,51 @@
             // 
             this.lstKategoriler.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lstKategoriler.FormattingEnabled = true;
-            this.lstKategoriler.ItemHeight = 18;
-            this.lstKategoriler.Location = new System.Drawing.Point(18, 43);
+            this.lstKategoriler.ItemHeight = 22;
+            this.lstKategoriler.Location = new System.Drawing.Point(24, 53);
+            this.lstKategoriler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstKategoriler.Name = "lstKategoriler";
-            this.lstKategoriler.Size = new System.Drawing.Size(274, 328);
+            this.lstKategoriler.Size = new System.Drawing.Size(364, 400);
             this.lstKategoriler.TabIndex = 27;
             this.lstKategoriler.SelectedIndexChanged += new System.EventHandler(this.lstKategoriler_SelectedIndexChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(473, 110);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 24);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "KDV";
+            // 
+            // nKDV
+            // 
+            this.nKDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nKDV.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.nKDV.Location = new System.Drawing.Point(562, 110);
+            this.nKDV.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nKDV.Name = "nKDV";
+            this.nKDV.Size = new System.Drawing.Size(93, 24);
+            this.nKDV.TabIndex = 36;
+            this.nKDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FormKategoriler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(662, 419);
+            this.ClientSize = new System.Drawing.Size(883, 516);
+            this.Controls.Add(this.nKDV);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGuncelle);
             this.Controls.Add(this.btnEkle);
@@ -143,10 +187,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAra);
             this.Controls.Add(this.lstKategoriler);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormKategoriler";
             this.Text = "FormKategoriler";
             this.Load += new System.EventHandler(this.FormKategoriler_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nKDV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +208,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtAra;
         private System.Windows.Forms.ListBox lstKategoriler;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nKDV;
     }
 }

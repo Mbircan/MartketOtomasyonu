@@ -43,11 +43,11 @@ namespace MartketOtomasyonu.Forms
 
         void SepetHesapla()
         {
-            decimal toplam = 0, kdv = 0;
+            decimal toplam = 0, toplamKDV = 0;
             toplam = sepetList.Sum(x => x.Toplam);
-            kdv = toplam * 0.18m;
+            toplamKDV = sepetList.Sum(x => x.KDV);
+            nmrKDV.Value = toplamKDV;
             nmrToplam.Value = toplam;
-            nmrKDV.Value = kdv;
         }
 
         void VerileriGetir(string arama = "")
@@ -66,6 +66,7 @@ namespace MartketOtomasyonu.Forms
                                 UrunAdi = ur.UrunAdi,
                                 Fiyat = ur.Fiyat,
                                 Stok = ur.Stok,
+                                KDV = ur.KDV,
                                 BarkodID = ur.BarkodID
                             };
                 lstUrunler.DataSource = sonuc.ToList();
@@ -122,17 +123,7 @@ namespace MartketOtomasyonu.Forms
         private void FormSiparis_Load(object sender, EventArgs e)
         {
             VerileriGetir();
-            for (int i = 1; i <= 12; i++)
-            {
-                cmbAy.Items.Add(i);
-            }
-            for (int i = 2018; i <= 2040; i++)
-            {
-                cmbYil.Items.Add(i);
-            }
-            ToolTip ipucu = new ToolTip();
-            ipucu.SetToolTip(lblIpucu, "Kartınızın arkasındaki 3 haneli sayı.");
-            ipucu.ShowAlways = true;
+            nNakit.Controls.RemoveAt(0);
         }
 
         private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
@@ -148,6 +139,7 @@ namespace MartketOtomasyonu.Forms
                      UrunAdi = y.UrunAdi,
                      Fiyat = y.Fiyat,
                      BarkodID = y.BarkodID,
+                     KDV = y.KDV,
                      Stok = y.Stok
                  }).FirstOrDefault();
                 if (urun == null)
@@ -180,6 +172,7 @@ namespace MartketOtomasyonu.Forms
                         UrunID = urun.UrunID,
                         Indirim = nmrIndirim.Value,
                         UrunAdi = urun.UrunAdi,
+                        KDV = urun.KDV,
                         Fiyat = urun.Fiyat ?? 0
                     };
                     sepetList.Add(model);
@@ -217,6 +210,7 @@ namespace MartketOtomasyonu.Forms
                     UrunID = seciliUrun.UrunID,
                     Indirim = nmrIndirim.Value,
                     UrunAdi = seciliUrun.UrunAdi,
+                    KDV = seciliUrun.KDV,
                     Fiyat = seciliUrun.Fiyat ?? 0
                 };
                 sepetList.Add(model);
@@ -234,9 +228,9 @@ namespace MartketOtomasyonu.Forms
         {
             var seciliUrun = lstUrunler.SelectedItem as UrunViewModel;
             lblStok.Text = $"Stok Durumu : {seciliUrun.Stok}";
-            if (seciliUrun.Stok == 0)
+            if (seciliUrun.Stok >= 0 && seciliUrun.Stok <= 10)
                 lblStok.BackColor = Color.Red;
-            else if (seciliUrun.Stok > 0 && seciliUrun.Stok < 10)
+            else if (seciliUrun.Stok > 10 && seciliUrun.Stok <= 30)
                 lblStok.BackColor = Color.Yellow;
             else
                 lblStok.BackColor = Color.Green;
@@ -251,24 +245,14 @@ namespace MartketOtomasyonu.Forms
                 MessageBox.Show("Önce sepete ürün ekleyiniz.");
                 return;
             }
-            if(!rbNakit.Checked && !rbKredi.Checked)
+            if (!rbNakit.Checked && !rbKredi.Checked)
             {
                 MessageBox.Show("Ödeme şeklini seçiniz.");
                 return;
             }
-            if (rbNakit.Checked && nmrToplam.Value >nNakit.Value)
+            if (rbNakit.Checked && nmrToplam.Value > nNakit.Value)
             {
                 MessageBox.Show("Girilen para yetersiz.");
-                return;
-            }
-            bool isimGirdimi = string.IsNullOrWhiteSpace(txtİsim.Text);
-            bool kartnoGirdimi = string.IsNullOrWhiteSpace(txtKartNo.Text);
-            bool sktAySectimi = cmbAy.SelectedItem is null;
-            bool sktYilSectimi = cmbYil.SelectedItem is null;
-            bool cvKoduGirdimi = string.IsNullOrWhiteSpace(txtCV.Text);
-            if (rbKredi.Checked && (isimGirdimi || kartnoGirdimi || sktAySectimi || sktYilSectimi || cvKoduGirdimi))
-            {
-                MessageBox.Show("Boş alan bırakmayınız.");
                 return;
             }
             string mesaj = $"{nmrToplam.Value:c2} tutarındaki siparişi onaylıyor musunuz?";
@@ -299,8 +283,18 @@ namespace MartketOtomasyonu.Forms
                         db.SiparisDetaylar.Add(siparisDetay);
                     }
                     db.SaveChanges();
+                    var siparis = db.SiparisDetaylar.Where(x => x.SiparisID == yeniSiparis.SiparisID).ToList();
+                    var satis = db.Siparisler.Find(yeniSiparis.SiparisID);
+                    satis.TeslimTarihi = DateTime.Now;
+                    foreach (var item in siparis)
+                    {
+                        var urun = db.Urunler.Find(item.UrunID);
+                        urun.Stok -= (short)item.Adet;
+                    }
+                    VerileriGetir();
+                    db.SaveChanges();
                     tran.Commit();
-                    MessageBox.Show($"{yeniSiparis.SiparisID} nolu siparişiniz Onaylanmıştır");
+                    MessageBox.Show($"{yeniSiparis.SiparisID} nolu satın alımınız Onaylanmıştır");
                 }
                 catch (Exception ex)
                 {
@@ -339,22 +333,14 @@ namespace MartketOtomasyonu.Forms
             if (rbNakit.Checked == true)
             {
                 rbKredi.Checked = false;
-                lblKartNo.Visible = false;
-                lblİsim.Visible = false;
-                lblSKT.Visible = false;
-                lblCV.Visible = false;
-                txtKartNo.Visible = false;
-                txtİsim.Visible = false;
-                cmbAy.Visible = false;
-                cmbYil.Visible = false;
-                txtCV.Visible = false;
                 lblOdenen.Visible = true;
                 nNakit.Visible = true;
+                nNakit.ReadOnly = false;
                 lblPara.Visible = true;
                 lblParaUstu.Visible = true;
-                lblIpucu.Visible = false;
+                nNakit.Value = 0;
             }
-                
+
         }
 
         private void rbKredi_CheckedChanged(object sender, EventArgs e)
@@ -362,22 +348,14 @@ namespace MartketOtomasyonu.Forms
             if (rbKredi.Checked == true)
             {
                 rbNakit.Checked = false;
-                lblKartNo.Visible = true;
-                lblİsim.Visible = true;
-                lblSKT.Visible = true;
-                lblCV.Visible = true;
-                txtKartNo.Visible = true;
-                txtİsim.Visible = true;
-                cmbAy.Visible = true;
-                cmbYil.Visible = true;
-                txtCV.Visible = true;
-                lblOdenen.Visible = false;
+                lblOdenen.Visible = true;
                 lblPara.Visible = false;
                 lblParaUstu.Visible = false;
-                nNakit.Visible = false;
-                lblIpucu.Visible = true;
+                nNakit.Visible = true;
+                nNakit.ReadOnly = true;
+                nNakit.Value = nmrToplam.Value;
             }
-                
+
         }
 
         private void nNakit_ValueChanged(object sender, EventArgs e)

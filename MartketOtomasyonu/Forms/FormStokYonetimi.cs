@@ -56,7 +56,7 @@ namespace MartketOtomasyonu.Forms
                 if (lstUrunler.SelectedItem == null) return;
                 var seciliUrun = lstUrunler.SelectedItem as StokViewModel;
                 var urun = db.Urunler.Find(seciliUrun.UrunID);
-                urun.Stok = short.Parse(txtStok.Text);
+                urun.Stok += short.Parse(txtStok.Text);
                 db.SaveChanges();
                 VerileriGetir();
             }

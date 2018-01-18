@@ -15,6 +15,7 @@ namespace MartketOtomasyonu.ViewModels
         public short? Stok { get; set; }
         public string KategoriAdi { get; set; }
         public decimal Indirim { get; set; }
+        public decimal KDV { get; set; }
 
         public override string ToString() => $"{KategoriAdi}, {UrunAdi} , {Fiyat:c2}";
     }

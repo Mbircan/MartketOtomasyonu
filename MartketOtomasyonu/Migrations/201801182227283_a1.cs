@@ -14,6 +14,7 @@ namespace MartketOtomasyonu.Migrations
                         KategoriID = c.Int(nullable: false, identity: true),
                         KategoriAdı = c.String(nullable: false, maxLength: 25),
                         Açıklama = c.String(),
+                        KDV = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => t.KategoriID)
                 .Index(t => t.KategoriAdı, unique: true);
@@ -23,11 +24,13 @@ namespace MartketOtomasyonu.Migrations
                 c => new
                     {
                         UrunID = c.Int(nullable: false, identity: true),
-                        BarkodID = c.Long(nullable: false),
+                        BarkodID = c.String(),
                         ÜrünAdı = c.String(name: "Ürün Adı", nullable: false, maxLength: 40),
                         Fiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Stok = c.Short(nullable: false),
                         EklenmeZamani = c.DateTime(nullable: false),
+                        UrunResmi = c.Binary(),
+                        KDV = c.Decimal(nullable: false, precision: 18, scale: 2),
                         KategoriID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.UrunID)
@@ -41,6 +44,8 @@ namespace MartketOtomasyonu.Migrations
                     {
                         SiparisID = c.Int(nullable: false),
                         UrunID = c.Int(nullable: false),
+                        SiparisTarihi = c.DateTime(nullable: false),
+                        TeslimTarihi = c.DateTime(),
                         Adet = c.Int(nullable: false),
                         Fiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Indirim = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -56,10 +61,8 @@ namespace MartketOtomasyonu.Migrations
                 c => new
                     {
                         SiparisID = c.Int(nullable: false, identity: true),
-                        SiparisTarihi = c.DateTime(nullable: false),
                         TeslimTarihi = c.DateTime(),
-                        TedarikciID = c.Int(nullable: false),
-                        KargoFiyati = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        OdemeSekli = c.String(),
                     })
                 .PrimaryKey(t => t.SiparisID);
             

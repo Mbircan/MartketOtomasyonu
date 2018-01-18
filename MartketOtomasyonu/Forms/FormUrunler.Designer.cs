@@ -223,7 +223,7 @@
             // 
             this.pbUrun.Location = new System.Drawing.Point(98, 276);
             this.pbUrun.Name = "pbUrun";
-            this.pbUrun.Size = new System.Drawing.Size(187, 71);
+            this.pbUrun.Size = new System.Drawing.Size(129, 71);
             this.pbUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbUrun.TabIndex = 49;
             this.pbUrun.TabStop = false;
@@ -262,7 +262,7 @@
             this.Controls.Add(this.txtUrunAdi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstUrunler);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUrunler";
             this.Text = "FormUrunler";
             this.Load += new System.EventHandler(this.FormUrunler_Load);

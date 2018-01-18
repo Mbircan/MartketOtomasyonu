@@ -33,7 +33,6 @@ namespace MartketOtomasyonu.Forms
                     .Select(x => new SiparisViewModel()
                     {
                         SiparisID = x.SiparisID,
-                        SiparisTarihi = x.SiparisTarihi,
                         TeslimTarihi = x.TeslimTarihi,
                         ToplamSiparisTutari = 0,
                         OdemeSekli = x.OdemeSekli
@@ -47,7 +46,6 @@ namespace MartketOtomasyonu.Forms
                         .Where(x => x.SiparisID == item.SiparisID)
                         .Sum(x => x.Adet * x.Fiyat * (1 - x.Indirim));
                     ListViewItem viewItem = new ListViewItem(item.SiparisID.ToString("0000"));
-                    viewItem.SubItems.Add($"{item.SiparisTarihi:dd MMMM yyyy}");
                     viewItem.SubItems.Add(item.TeslimTarihi != null ? $"{item.TeslimTarihi:dd MMMM yyyy}" : "Teslim edilmedi");
                     viewItem.SubItems.Add($"{item.ToplamSiparisTutari:c2}");
                     viewItem.SubItems.Add(item.OdemeSekli);
@@ -63,18 +61,6 @@ namespace MartketOtomasyonu.Forms
 
         private void teslimEdildiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lstSiparisler.SelectedItems == null) return;
-            MyContext db = new MyContext();
-            var siparisNo = Convert.ToInt32(lstSiparisler.SelectedItems[0].Text);
-            var siparis = db.Siparisler.Find(siparisNo);
-            siparis.TeslimTarihi = DateTime.Now;
-            foreach (var item in siparis.SiparisDetaylar)
-            {
-                item.Urun.Stok -= (short)item.Adet;
-            }
-            db.SaveChanges();
-            lstSiparisler.Items.Clear();
-            VerileriGetir();
         }
     }
 }

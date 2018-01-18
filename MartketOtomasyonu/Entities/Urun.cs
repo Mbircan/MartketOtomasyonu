@@ -23,6 +23,7 @@ namespace MartketOtomasyonu.Entities
         public short Stok { get; set; } = 0;
         public DateTime EklenmeZamani { get; set; } = DateTime.Now;
         public byte[] UrunResmi { get; set; }
+        public decimal KDV { get; set; }
         public int KategoriID { get; set; }
         [ForeignKey("KategoriID")]
         public virtual Kategori Kategori { get; set; }
