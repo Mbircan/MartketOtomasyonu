@@ -17,6 +17,7 @@ namespace MartketOtomasyonu.ViewModels
         public decimal Indirim { get; set; } = 0;
         public decimal KDV { get; set; }
         public decimal Toplam => Adet * Fiyat * (1 - Indirim)*(1+KDV);
+        public decimal KDVTutarı => Toplam - Adet * Fiyat * (1 - Indirim);
         public override string ToString() => $"{UrunAdi} , {Adet}x{Fiyat}+KDV={Toplam:c2}";
     }
 }

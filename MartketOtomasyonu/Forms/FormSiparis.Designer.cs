@@ -62,9 +62,9 @@
             this.label2.Location = new System.Drawing.Point(421, 375);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 24);
+            this.label2.Size = new System.Drawing.Size(100, 24);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Toplam KDV";
+            this.label2.Text = "KDV Tutarı";
             // 
             // label1
             // 
@@ -73,16 +73,16 @@
             this.label1.Location = new System.Drawing.Point(464, 329);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 24);
+            this.label1.Size = new System.Drawing.Size(53, 24);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Toplam";
+            this.label1.Text = "Tutar";
             // 
             // nmrToplam
             // 
             this.nmrToplam.DecimalPlaces = 2;
             this.nmrToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nmrToplam.Location = new System.Drawing.Point(560, 327);
-            this.nmrToplam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmrToplam.Margin = new System.Windows.Forms.Padding(4);
             this.nmrToplam.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -104,7 +104,7 @@
             0,
             65536});
             this.nmrIndirim.Location = new System.Drawing.Point(259, 186);
-            this.nmrIndirim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmrIndirim.Margin = new System.Windows.Forms.Padding(4);
             this.nmrIndirim.Maximum = new decimal(new int[] {
             1,
             0,
@@ -120,7 +120,7 @@
             this.nmrKDV.DecimalPlaces = 2;
             this.nmrKDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nmrKDV.Location = new System.Drawing.Point(560, 375);
-            this.nmrKDV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nmrKDV.Margin = new System.Windows.Forms.Padding(4);
             this.nmrKDV.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -136,7 +136,7 @@
             // 
             this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAra.Location = new System.Drawing.Point(21, 34);
-            this.txtAra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAra.Margin = new System.Windows.Forms.Padding(4);
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(231, 28);
             this.txtAra.TabIndex = 17;
@@ -146,7 +146,7 @@
             // 
             this.btnSepeteEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSepeteEkle.Location = new System.Drawing.Point(259, 119);
-            this.btnSepeteEkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSepeteEkle.Margin = new System.Windows.Forms.Padding(4);
             this.btnSepeteEkle.Name = "btnSepeteEkle";
             this.btnSepeteEkle.Size = new System.Drawing.Size(147, 59);
             this.btnSepeteEkle.TabIndex = 16;
@@ -160,7 +160,7 @@
             this.lstSepet.FormattingEnabled = true;
             this.lstSepet.ItemHeight = 18;
             this.lstSepet.Location = new System.Drawing.Point(413, 59);
-            this.lstSepet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstSepet.Margin = new System.Windows.Forms.Padding(4);
             this.lstSepet.Name = "lstSepet";
             this.lstSepet.Size = new System.Drawing.Size(271, 220);
             this.lstSepet.TabIndex = 15;
@@ -171,7 +171,7 @@
             this.lstUrunler.FormattingEnabled = true;
             this.lstUrunler.ItemHeight = 18;
             this.lstUrunler.Location = new System.Drawing.Point(21, 66);
-            this.lstUrunler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstUrunler.Margin = new System.Windows.Forms.Padding(4);
             this.lstUrunler.Name = "lstUrunler";
             this.lstUrunler.Size = new System.Drawing.Size(231, 220);
             this.lstUrunler.TabIndex = 14;
@@ -211,7 +211,7 @@
             // 
             this.btnSiparisVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSiparisVer.Location = new System.Drawing.Point(597, 438);
-            this.btnSiparisVer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSiparisVer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSiparisVer.Name = "btnSiparisVer";
             this.btnSiparisVer.Size = new System.Drawing.Size(147, 59);
             this.btnSiparisVer.TabIndex = 27;

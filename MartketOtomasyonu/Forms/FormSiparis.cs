@@ -45,7 +45,7 @@ namespace MartketOtomasyonu.Forms
         {
             decimal toplam = 0, toplamKDV = 0;
             toplam = sepetList.Sum(x => x.Toplam);
-            toplamKDV = sepetList.Sum(x => x.KDV);
+            toplamKDV = sepetList.Sum(x => x.KDVTutarı);
             nmrKDV.Value = toplamKDV;
             nmrToplam.Value = toplam;
         }
