@@ -177,7 +177,7 @@
             this.Controls.Add(this.lstSiparisler);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRaporYonetimi";
-            this.Text = "FormSiparisYonetimi";
+            this.Text = "Rapor Sistemi";
             this.Load += new System.EventHandler(this.FormSiparisYonetimi_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);

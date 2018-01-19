@@ -315,7 +315,7 @@
             this.rbNakit.UseVisualStyleBackColor = true;
             this.rbNakit.CheckedChanged += new System.EventHandler(this.rbNakit_CheckedChanged);
             // 
-            // FormSiparis
+            // FormSatisYap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -335,8 +335,8 @@
             this.Controls.Add(this.lstSepet);
             this.Controls.Add(this.lstUrunler);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormSiparis";
-            this.Text = "FormSiparis";
+            this.Name = "FormSatisYap";
+            this.Text = "Satış Ekranı";
             this.Load += new System.EventHandler(this.FormSiparis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nmrToplam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrIndirim)).EndInit();

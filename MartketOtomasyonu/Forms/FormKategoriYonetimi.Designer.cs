@@ -46,7 +46,7 @@
             // 
             this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.Location = new System.Drawing.Point(699, 369);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(99, 55);
             this.btnSil.TabIndex = 34;
@@ -58,7 +58,7 @@
             // 
             this.btnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGuncelle.Location = new System.Drawing.Point(583, 369);
-            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(99, 55);
             this.btnGuncelle.TabIndex = 33;
@@ -70,7 +70,7 @@
             // 
             this.btnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnEkle.Location = new System.Drawing.Point(455, 369);
-            this.btnEkle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEkle.Margin = new System.Windows.Forms.Padding(4);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(99, 55);
             this.btnEkle.TabIndex = 32;
@@ -82,7 +82,7 @@
             // 
             this.rtxtAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.rtxtAciklama.Location = new System.Drawing.Point(559, 157);
-            this.rtxtAciklama.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxtAciklama.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtAciklama.Name = "rtxtAciklama";
             this.rtxtAciklama.Size = new System.Drawing.Size(260, 163);
             this.rtxtAciklama.TabIndex = 31;
@@ -103,7 +103,7 @@
             // 
             this.txtKategoriAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtKategoriAdi.Location = new System.Drawing.Point(559, 57);
-            this.txtKategoriAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKategoriAdi.Margin = new System.Windows.Forms.Padding(4);
             this.txtKategoriAdi.Name = "txtKategoriAdi";
             this.txtKategoriAdi.Size = new System.Drawing.Size(260, 28);
             this.txtKategoriAdi.TabIndex = 29;
@@ -123,7 +123,7 @@
             // 
             this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAra.Location = new System.Drawing.Point(24, 17);
-            this.txtAra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAra.Margin = new System.Windows.Forms.Padding(4);
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(364, 28);
             this.txtAra.TabIndex = 26;
@@ -135,7 +135,7 @@
             this.lstKategoriler.FormattingEnabled = true;
             this.lstKategoriler.ItemHeight = 22;
             this.lstKategoriler.Location = new System.Drawing.Point(24, 53);
-            this.lstKategoriler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstKategoriler.Margin = new System.Windows.Forms.Padding(4);
             this.lstKategoriler.Name = "lstKategoriler";
             this.lstKategoriler.Size = new System.Drawing.Size(364, 400);
             this.lstKategoriler.TabIndex = 27;
@@ -171,7 +171,7 @@
             this.nKDV.TabIndex = 36;
             this.nKDV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // FormKategoriler
+            // FormKategoriYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,8 +188,8 @@
             this.Controls.Add(this.txtAra);
             this.Controls.Add(this.lstKategoriler);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormKategoriler";
-            this.Text = "FormKategoriler";
+            this.Name = "FormKategoriYonetimi";
+            this.Text = "Kategori Yönetimi";
             this.Load += new System.EventHandler(this.FormKategoriler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nKDV)).EndInit();
             this.ResumeLayout(false);
