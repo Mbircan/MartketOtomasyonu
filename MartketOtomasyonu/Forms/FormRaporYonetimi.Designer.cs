@@ -41,6 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbOdemeSekli = new System.Windows.Forms.ComboBox();
             this.btnGoruntule = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             this.lstSiparisler.FullRowSelect = true;
             this.lstSiparisler.GridLines = true;
             this.lstSiparisler.Location = new System.Drawing.Point(41, 104);
-            this.lstSiparisler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstSiparisler.Margin = new System.Windows.Forms.Padding(4);
             this.lstSiparisler.MultiSelect = false;
             this.lstSiparisler.Name = "lstSiparisler";
             this.lstSiparisler.Size = new System.Drawing.Size(927, 375);
@@ -96,7 +98,6 @@
             this.teslimEdildiToolStripMenuItem.Name = "teslimEdildiToolStripMenuItem";
             this.teslimEdildiToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
             this.teslimEdildiToolStripMenuItem.Text = "Teslim Edildi";
-            this.teslimEdildiToolStripMenuItem.Click += new System.EventHandler(this.teslimEdildiToolStripMenuItem_Click);
             // 
             // dtpIlk
             // 
@@ -115,7 +116,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(493, 51);
+            this.label1.Location = new System.Drawing.Point(596, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 3;
@@ -128,33 +129,54 @@
             "Nakit",
             "Kredi Kartı",
             "Nakit veya Kredi Kartı"});
-            this.cmbOdemeSekli.Location = new System.Drawing.Point(587, 51);
+            this.cmbOdemeSekli.Location = new System.Drawing.Point(690, 54);
             this.cmbOdemeSekli.Name = "cmbOdemeSekli";
             this.cmbOdemeSekli.Size = new System.Drawing.Size(162, 24);
             this.cmbOdemeSekli.TabIndex = 4;
+            this.cmbOdemeSekli.SelectedIndexChanged += new System.EventHandler(this.cmbOdemeSekli_SelectedIndexChanged);
             // 
             // btnGoruntule
             // 
-            this.btnGoruntule.Location = new System.Drawing.Point(755, 47);
+            this.btnGoruntule.Location = new System.Drawing.Point(485, 47);
             this.btnGoruntule.Name = "btnGoruntule";
             this.btnGoruntule.Size = new System.Drawing.Size(90, 31);
             this.btnGoruntule.TabIndex = 5;
             this.btnGoruntule.Text = "Görüntüle";
             this.btnGoruntule.UseVisualStyleBackColor = true;
             // 
-            // FormSiparisYonetimi
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Başlangıç";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(261, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(34, 17);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Bitiş";
+            // 
+            // FormRaporYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 544);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnGoruntule);
             this.Controls.Add(this.cmbOdemeSekli);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpSon);
             this.Controls.Add(this.dtpIlk);
             this.Controls.Add(this.lstSiparisler);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FormSiparisYonetimi";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "FormRaporYonetimi";
             this.Text = "FormSiparisYonetimi";
             this.Load += new System.EventHandler(this.FormSiparisYonetimi_Load);
             this.contextMenuStrip1.ResumeLayout(false);
@@ -177,5 +199,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbOdemeSekli;
         private System.Windows.Forms.Button btnGoruntule;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

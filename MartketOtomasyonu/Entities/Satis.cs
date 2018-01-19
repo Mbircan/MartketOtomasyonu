@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace MartketOtomasyonu.Entities
 {
-    [Table("Siparisler")]
-    public class Siparis
+    [Table("Satislar")]
+    public class Satis
     {
         [Key]
-        public int SiparisID { get; set; }
-        public DateTime? TeslimTarihi { get; set; }
+        public int SatisID { get; set; }
+        public DateTime SatisTarihi { get; set; }
         public string OdemeSekli { get; set; }
 
-        public virtual List<SiparisDetay> SiparisDetaylar { get; set; }
+        public virtual List<SatisDetay> SatisDetaylar { get; set; }
     }
 }

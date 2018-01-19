@@ -16,7 +16,7 @@ namespace MartketOtomasyonu.DAL
         }
         public virtual DbSet<Kategori> Kategoriler { get; set; }
         public virtual DbSet<Urun> Urunler { get; set; }
-        public virtual DbSet<Siparis> Siparisler { get; set; }
-        public virtual DbSet<SiparisDetay> SiparisDetaylar { get; set; }
+        public virtual DbSet<Satis> Satislar { get; set; }
+        public virtual DbSet<SatisDetay> SatisDetaylar { get; set; }
     }
 }

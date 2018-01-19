@@ -39,47 +39,46 @@ namespace MartketOtomasyonu.Migrations
                 .Index(t => t.KategoriID);
             
             CreateTable(
-                "dbo.SiparisDetaylar",
+                "dbo.SatisDetaylar",
                 c => new
                     {
-                        SiparisID = c.Int(nullable: false),
+                        SatisID = c.Int(nullable: false),
                         UrunID = c.Int(nullable: false),
-                        SiparisTarihi = c.DateTime(nullable: false),
-                        TeslimTarihi = c.DateTime(),
+                        SatisTarihi = c.DateTime(nullable: false),
                         Adet = c.Int(nullable: false),
                         Fiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Indirim = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
-                .PrimaryKey(t => new { t.SiparisID, t.UrunID })
-                .ForeignKey("dbo.Siparisler", t => t.SiparisID, cascadeDelete: true)
+                .PrimaryKey(t => new { t.SatisID, t.UrunID })
+                .ForeignKey("dbo.Satislar", t => t.SatisID, cascadeDelete: true)
                 .ForeignKey("dbo.Urunler", t => t.UrunID, cascadeDelete: true)
-                .Index(t => t.SiparisID)
+                .Index(t => t.SatisID)
                 .Index(t => t.UrunID);
             
             CreateTable(
-                "dbo.Siparisler",
+                "dbo.Satislar",
                 c => new
                     {
-                        SiparisID = c.Int(nullable: false, identity: true),
-                        TeslimTarihi = c.DateTime(),
+                        SatisID = c.Int(nullable: false, identity: true),
+                        SatisTarihi = c.DateTime(nullable: false),
                         OdemeSekli = c.String(),
                     })
-                .PrimaryKey(t => t.SiparisID);
+                .PrimaryKey(t => t.SatisID);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.SiparisDetaylar", "UrunID", "dbo.Urunler");
-            DropForeignKey("dbo.SiparisDetaylar", "SiparisID", "dbo.Siparisler");
+            DropForeignKey("dbo.SatisDetaylar", "UrunID", "dbo.Urunler");
+            DropForeignKey("dbo.SatisDetaylar", "SatisID", "dbo.Satislar");
             DropForeignKey("dbo.Urunler", "KategoriID", "dbo.Kategoriler");
-            DropIndex("dbo.SiparisDetaylar", new[] { "UrunID" });
-            DropIndex("dbo.SiparisDetaylar", new[] { "SiparisID" });
+            DropIndex("dbo.SatisDetaylar", new[] { "UrunID" });
+            DropIndex("dbo.SatisDetaylar", new[] { "SatisID" });
             DropIndex("dbo.Urunler", new[] { "KategoriID" });
             DropIndex("dbo.Urunler", new[] { "Ürün Adı" });
             DropIndex("dbo.Kategoriler", new[] { "KategoriAdı" });
-            DropTable("dbo.Siparisler");
-            DropTable("dbo.SiparisDetaylar");
+            DropTable("dbo.Satislar");
+            DropTable("dbo.SatisDetaylar");
             DropTable("dbo.Urunler");
             DropTable("dbo.Kategoriler");
         }

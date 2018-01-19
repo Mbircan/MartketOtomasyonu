@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace MartketOtomasyonu.ViewModels
 {
-    public class SiparisViewModel
+    public class SatisViewModel
     {
-        public int SiparisID { get; set; }
-        public DateTime SiparisTarihi { get; set; }
-        public DateTime? TeslimTarihi { get; set; }
+        public int SatisID { get; set; }
+        public DateTime SatisTarihi { get; set; }
         public decimal ToplamSiparisTutari { get; set; }
         public string OdemeSekli { get; set; }
     }

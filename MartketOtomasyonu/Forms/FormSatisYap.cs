@@ -92,25 +92,25 @@ namespace MartketOtomasyonu.Forms
             {
                 try
                 {
-                    var yeniSiparis = new Siparis();
-                    db.Siparisler.Add(yeniSiparis);
+                    var yeniSatis = new Satis();
+                    db.Satislar.Add(yeniSatis);
                     db.SaveChanges();
                     foreach (var item in sepetList)
                     {
-                        var siparisDetay = new SiparisDetay()
+                        var satisDetay = new SatisDetay()
                         {
-                            SiparisID = yeniSiparis.SiparisID,
+                            SatisID = yeniSatis.SatisID,
                             UrunID = item.UrunID,
                             Fiyat = item.Fiyat,
                             Adet = item.Adet,
                             Indirim = item.Indirim
 
                         };
-                        db.SiparisDetaylar.Add(siparisDetay);
+                        db.SatisDetaylar.Add(satisDetay);
                     }
                     db.SaveChanges();
                     tran.Commit();
-                    MessageBox.Show($"{yeniSiparis.SiparisID} nolu siparişiniz Onaylanmıştır");
+                    MessageBox.Show($"{yeniSatis.SatisID} nolu satışınız Onaylanmıştır.");
                 }
                 catch (Exception ex)
                 {
@@ -255,37 +255,37 @@ namespace MartketOtomasyonu.Forms
                 MessageBox.Show("Girilen para yetersiz.");
                 return;
             }
-            string mesaj = $"{nmrToplam.Value:c2} tutarındaki siparişi onaylıyor musunuz?";
-            var cevap = MessageBox.Show(mesaj, "Sipariş Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string mesaj = $"{nmrToplam.Value:c2} tutarındaki satın alımı onaylıyor musunuz?";
+            var cevap = MessageBox.Show(mesaj, "Satış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (cevap != DialogResult.Yes) return;
             MyContext db = new MyContext();
             using (var tran = db.Database.BeginTransaction())
             {
                 try
                 {
-                    var yeniSiparis = new Siparis();
+                    var yeniSatis = new Satis();
                     if (rbNakit.Checked)
-                        yeniSiparis.OdemeSekli = rbNakit.Text;
+                        yeniSatis.OdemeSekli = rbNakit.Text;
                     else if (rbKredi.Checked)
-                        yeniSiparis.OdemeSekli = rbKredi.Text;
-                    db.Siparisler.Add(yeniSiparis);
+                        yeniSatis.OdemeSekli = rbKredi.Text;
+                    db.Satislar.Add(yeniSatis);
                     db.SaveChanges();
                     foreach (var item in sepetList)
                     {
-                        var siparisDetay = new SiparisDetay()
+                        var satisDetay = new SatisDetay()
                         {
-                            SiparisID = yeniSiparis.SiparisID,
+                            SatisID = yeniSatis.SatisID,
                             UrunID = item.UrunID,
                             Fiyat = item.Fiyat,
                             Adet = item.Adet,
                             Indirim = item.Indirim,
                         };
-                        db.SiparisDetaylar.Add(siparisDetay);
+                        db.SatisDetaylar.Add(satisDetay);
                     }
                     db.SaveChanges();
-                    var siparis = db.SiparisDetaylar.Where(x => x.SiparisID == yeniSiparis.SiparisID).ToList();
-                    var satis = db.Siparisler.Find(yeniSiparis.SiparisID);
-                    satis.TeslimTarihi = DateTime.Now;
+                    var siparis = db.SatisDetaylar.Where(x => x.SatisID == yeniSatis.SatisID).ToList();
+                    var satis = db.Satislar.Find(yeniSatis.SatisID);
+                    satis.SatisTarihi = DateTime.Now;
                     foreach (var item in siparis)
                     {
                         var urun = db.Urunler.Find(item.UrunID);
@@ -294,7 +294,7 @@ namespace MartketOtomasyonu.Forms
                     VerileriGetir();
                     db.SaveChanges();
                     tran.Commit();
-                    MessageBox.Show($"{yeniSiparis.SiparisID} nolu satın alımınız Onaylanmıştır");
+                    MessageBox.Show($"{yeniSatis.SatisID} nolu satın alımınız Onaylanmıştır");
                 }
                 catch (Exception ex)
                 {

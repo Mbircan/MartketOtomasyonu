@@ -28,6 +28,6 @@ namespace MartketOtomasyonu.Entities
         [ForeignKey("KategoriID")]
         public virtual Kategori Kategori { get; set; }
 
-        public virtual List<SiparisDetay> SiparisDetaylar { get; set; } = new List<SiparisDetay>();
+        public virtual List<SatisDetay> SatisDetaylar { get; set; } = new List<SatisDetay>();
     }
 }
