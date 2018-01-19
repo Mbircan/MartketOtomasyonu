@@ -14,9 +14,9 @@ using MartketOtomasyonu.ViewModels;
 
 namespace MartketOtomasyonu.Forms
 {
-    public partial class FormUrunler : Form
+    public partial class FormUrunYonetimi : Form
     {
-        public FormUrunler()
+        public FormUrunYonetimi()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace MartketOtomasyonu.Forms
 
         private void btnKategoriler_Click(object sender, EventArgs e)
         {
-            FormKategoriler formKategoriler = new FormKategoriler();
+            FormKategoriYonetimi formKategoriler = new FormKategoriYonetimi();
             this.Hide();
             formKategoriler.Show();
         }
@@ -156,6 +156,7 @@ namespace MartketOtomasyonu.Forms
 
         private void lstUrunler_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (lstUrunler.SelectedItem == null)return;
             var SeciliUrun = lstUrunler.SelectedItem as Urun;
             txtUrunAdi.Text = SeciliUrun.UrunAdi;
             nFiyat.Value = SeciliUrun.Fiyat;
@@ -201,7 +202,7 @@ namespace MartketOtomasyonu.Forms
 
         private void btnSiparisler_Click(object sender, EventArgs e)
         {
-            FormSiparisYonetimi formSiparisYonetimi = new FormSiparisYonetimi();
+            FormRaporYonetimi formSiparisYonetimi = new FormRaporYonetimi();
             formSiparisYonetimi.ShowDialog();
         }
 

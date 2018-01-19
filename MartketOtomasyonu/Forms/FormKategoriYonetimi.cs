@@ -12,9 +12,9 @@ using MartketOtomasyonu.Entities;
 
 namespace MartketOtomasyonu.Forms
 {
-    public partial class FormKategoriler : Form
+    public partial class FormKategoriYonetimi : Form
     {
-        public FormKategoriler()
+        public FormKategoriYonetimi()
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace MartketOtomasyonu.Forms
 
         private void btnUrunler_Click(object sender, EventArgs e)
         {
-            FormUrunler urunlerForm = new FormUrunler();
+            FormUrunYonetimi urunlerForm = new FormUrunYonetimi();
             urunlerForm.Text = "Ürünler";
             urunlerForm.ShowDialog();
         }
@@ -53,7 +53,7 @@ namespace MartketOtomasyonu.Forms
 
         private void btnKategoriler_Click(object sender, EventArgs e)
         {
-            FormUrunler formUrunler = new FormUrunler();
+            FormUrunYonetimi formUrunler = new FormUrunYonetimi();
             this.Hide();
             formUrunler.Show();
         }
@@ -171,7 +171,7 @@ namespace MartketOtomasyonu.Forms
 
         private void btnSiparisler_Click(object sender, EventArgs e)
         {
-            FormSiparisYonetimi formSiparisYonetimi = new FormSiparisYonetimi();
+            FormRaporYonetimi formSiparisYonetimi = new FormRaporYonetimi();
             formSiparisYonetimi.ShowDialog();
         }
     }

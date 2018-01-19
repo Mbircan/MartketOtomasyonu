@@ -1,6 +1,6 @@
 ﻿namespace MartketOtomasyonu.Forms
 {
-    partial class FormSiparis
+    partial class FormSatisYap
     {
         /// <summary>
         /// Required designer variable.
@@ -215,7 +215,7 @@
             this.btnSiparisVer.Name = "btnSiparisVer";
             this.btnSiparisVer.Size = new System.Drawing.Size(147, 59);
             this.btnSiparisVer.TabIndex = 27;
-            this.btnSiparisVer.Text = "Satın Al";
+            this.btnSiparisVer.Text = "Satış Yap";
             this.btnSiparisVer.UseVisualStyleBackColor = true;
             this.btnSiparisVer.Click += new System.EventHandler(this.btnSiparisVer_Click_1);
             // 

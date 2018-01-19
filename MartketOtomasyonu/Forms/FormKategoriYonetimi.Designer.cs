@@ -1,6 +1,6 @@
 ﻿namespace MartketOtomasyonu.Forms
 {
-    partial class FormKategoriler
+    partial class FormKategoriYonetimi
     {
         /// <summary>
         /// Required designer variable.

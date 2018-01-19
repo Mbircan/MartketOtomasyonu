@@ -18,39 +18,39 @@ namespace MartketOtomasyonu
             InitializeComponent();
         }
 
-        private void btnUrunler_Click(object sender, EventArgs e)
+        private void btnSatisYap_Click(object sender, EventArgs e)
         {
-            FormUrunler formUrunler = new FormUrunler();
-            formUrunler.ShowDialog();
+            FormSatisYap formSatisYap = new FormSatisYap();
+            formSatisYap.ShowDialog();
         }
 
-        private void btnKategoriler_Click(object sender, EventArgs e)
+        private void btnCikis_Click(object sender, EventArgs e)
         {
-            FormKategoriler formKategoriler = new FormKategoriler();
-            formKategoriler.ShowDialog();
+            Application.Exit();
         }
 
-        private void btnSiparisler_Click(object sender, EventArgs e)
+        private void btnUrunYonetimi_Click(object sender, EventArgs e)
         {
-            FormSiparis formSiparis = new FormSiparis();
-            formSiparis.ShowDialog();
+            FormUrunYonetimi formUrunYonetimi = new FormUrunYonetimi();
+            formUrunYonetimi.ShowDialog();
         }
 
-        private void btnSiparisYonetimi_Click(object sender, EventArgs e)
+        private void btnKategoriYonetimi_Click(object sender, EventArgs e)
         {
-            FormSiparisYonetimi formSiparisYonetimi = new FormSiparisYonetimi();
-            formSiparisYonetimi.ShowDialog();
+            FormKategoriYonetimi formKategoriYonetimi = new FormKategoriYonetimi();
+            formKategoriYonetimi.ShowDialog();
+        }
+
+        private void btnRaporYonetimi_Click(object sender, EventArgs e)
+        {
+            FormRaporYonetimi formRaporYonetimi = new FormRaporYonetimi();
+            formRaporYonetimi.ShowDialog();
         }
 
         private void btnStokYonetimi_Click(object sender, EventArgs e)
         {
             FormStokYonetimi formStokYonetimi = new FormStokYonetimi();
             formStokYonetimi.ShowDialog();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

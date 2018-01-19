@@ -67,23 +67,23 @@
     <Compile Include="Entities\Siparis.cs" />
     <Compile Include="Entities\SiparisDetay.cs" />
     <Compile Include="Entities\Urun.cs" />
-    <Compile Include="Forms\FormKategoriler.cs">
+    <Compile Include="Forms\FormKategoriYonetimi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormKategoriler.Designer.cs">
-      <DependentUpon>FormKategoriler.cs</DependentUpon>
+    <Compile Include="Forms\FormKategoriYonetimi.Designer.cs">
+      <DependentUpon>FormKategoriYonetimi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSiparis.cs">
+    <Compile Include="Forms\FormSatisYap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSiparis.Designer.cs">
-      <DependentUpon>FormSiparis.cs</DependentUpon>
+    <Compile Include="Forms\FormSatisYap.Designer.cs">
+      <DependentUpon>FormSatisYap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormSiparisYonetimi.cs">
+    <Compile Include="Forms\FormRaporYonetimi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormSiparisYonetimi.Designer.cs">
-      <DependentUpon>FormSiparisYonetimi.cs</DependentUpon>
+    <Compile Include="Forms\FormRaporYonetimi.Designer.cs">
+      <DependentUpon>FormRaporYonetimi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormStokYonetimi.cs">
       <SubType>Form</SubType>
@@ -91,11 +91,11 @@
     <Compile Include="Forms\FormStokYonetimi.Designer.cs">
       <DependentUpon>FormStokYonetimi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormUrunler.cs">
+    <Compile Include="Forms\FormUrunYonetimi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormUrunler.Designer.cs">
-      <DependentUpon>FormUrunler.cs</DependentUpon>
+    <Compile Include="Forms\FormUrunYonetimi.Designer.cs">
+      <DependentUpon>FormUrunYonetimi.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201801182227283_a1.cs" />
     <Compile Include="Migrations\201801182227283_a1.Designer.cs">
@@ -111,20 +111,20 @@
     <EmbeddedResource Include="AnaMenu.resx">
       <DependentUpon>AnaMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormKategoriler.resx">
-      <DependentUpon>FormKategoriler.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormKategoriYonetimi.resx">
+      <DependentUpon>FormKategoriYonetimi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSiparis.resx">
-      <DependentUpon>FormSiparis.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormSatisYap.resx">
+      <DependentUpon>FormSatisYap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormSiparisYonetimi.resx">
-      <DependentUpon>FormSiparisYonetimi.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormRaporYonetimi.resx">
+      <DependentUpon>FormRaporYonetimi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormStokYonetimi.resx">
       <DependentUpon>FormStokYonetimi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormUrunler.resx">
-      <DependentUpon>FormUrunler.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormUrunYonetimi.resx">
+      <DependentUpon>FormUrunYonetimi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801182227283_a1.resx">
       <DependentUpon>201801182227283_a1.cs</DependentUpon>

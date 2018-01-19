@@ -13,9 +13,9 @@ using MartketOtomasyonu.ViewModels;
 
 namespace MartketOtomasyonu.Forms
 {
-    public partial class FormSiparis : Form
+    public partial class FormSatisYap : Form
     {
-        public FormSiparis()
+        public FormSatisYap()
         {
             InitializeComponent();
         }

@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace MartketOtomasyonu.Forms
 {
-    public partial class FormSiparisYonetimi : Form
+    public partial class FormRaporYonetimi : Form
     {
-        public FormSiparisYonetimi()
+        public FormRaporYonetimi()
         {
             InitializeComponent();
         }
