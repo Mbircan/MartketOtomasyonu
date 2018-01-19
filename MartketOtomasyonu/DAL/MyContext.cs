@@ -18,5 +18,10 @@ namespace MartketOtomasyonu.DAL
         public virtual DbSet<Urun> Urunler { get; set; }
         public virtual DbSet<Satis> Satislar { get; set; }
         public virtual DbSet<SatisDetay> SatisDetaylar { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+        }
     }
 }

@@ -33,7 +33,7 @@ namespace MartketOtomasyonu.Forms
                     .Select(x => new SatisViewModel()
                     {
                         SatisID = x.SatisID,
-                        SatisTarihi = x.SatisTarihi,
+                        SatisTarihi = x.SatisTarihi ?? DateTime.Now,
                         ToplamSiparisTutari = 0,
                         OdemeSekli = x.OdemeSekli
 
@@ -51,7 +51,7 @@ namespace MartketOtomasyonu.Forms
                 //    viewItem.SubItems.Add(item.OdemeSekli);
                 //    lstSiparisler.Items.Add(viewItem);
                 //}
-                lstSiparisler.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                lstSatislar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             catch (Exception ex)
             {
@@ -62,6 +62,7 @@ namespace MartketOtomasyonu.Forms
         private void cmbOdemeSekli_SelectedIndexChanged(object sender, EventArgs e)
         {
             MyContext db = new MyContext();
+            lstSatislar.Items.Clear();
             List<SatisViewModel> sonuc = new List<SatisViewModel>();
             if (cmbOdemeSekli.SelectedIndex == 0)
             {
@@ -69,7 +70,7 @@ namespace MartketOtomasyonu.Forms
                                        .Select(x => new SatisViewModel
                                        {
                                            SatisID = x.SatisID,
-                                           SatisTarihi = x.SatisTarihi,
+                                           SatisTarihi = x.SatisTarihi ?? DateTime.Now,
                                            ToplamSiparisTutari = 0,
                                            OdemeSekli = x.OdemeSekli
                                        }).ToList();
@@ -80,7 +81,7 @@ namespace MartketOtomasyonu.Forms
                                        .Select(x => new SatisViewModel
                                        {
                                            SatisID = x.SatisID,
-                                           SatisTarihi = x.SatisTarihi,
+                                           SatisTarihi = x.SatisTarihi ?? DateTime.Now,
                                            ToplamSiparisTutari = 0,
                                            OdemeSekli = x.OdemeSekli
                                        }).ToList();
@@ -91,7 +92,7 @@ namespace MartketOtomasyonu.Forms
                                        .Select(x => new SatisViewModel
                                        {
                                            SatisID = x.SatisID,
-                                           SatisTarihi = x.SatisTarihi,
+                                           SatisTarihi = x.SatisTarihi ?? DateTime.Now,
                                            ToplamSiparisTutari = 0,
                                            OdemeSekli = x.OdemeSekli
                                        }).ToList();
@@ -110,8 +111,22 @@ namespace MartketOtomasyonu.Forms
                 viewItem.SubItems.Add($"{item.SatisTarihi:dd MMMM yyyy}");
                 viewItem.SubItems.Add($"{item.ToplamSiparisTutari:c2}");
                 viewItem.SubItems.Add(item.OdemeSekli);
-                lstSiparisler.Items.Add(viewItem);
+                lstSatislar.Items.Add(viewItem);
             }
+        }
+
+        private void btnGoruntule_Click(object sender, EventArgs e)
+        {
+            MyContext db = new MyContext();
+            lstSatislar.Items.Clear();
+            var sonuc = db.Satislar.Where(x => x.SatisTarihi >= dtpIlk.Value && x.SatisTarihi < dtpSon.Value).Select(y => new SatisViewModel
+            {
+                OdemeSekli = y.OdemeSekli,
+                SatisID = y.SatisID,
+                SatisTarihi = y.SatisTarihi ?? DateTime.Now,
+                ToplamSiparisTutari = 0
+            }).ToList();
+            Filtrele(sonuc);
         }
     }
 }

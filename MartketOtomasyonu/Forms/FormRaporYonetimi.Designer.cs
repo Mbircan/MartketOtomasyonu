@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lstSiparisler = new System.Windows.Forms.ListView();
+            this.lstSatislar = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -46,24 +46,24 @@
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lstSiparisler
+            // lstSatislar
             // 
-            this.lstSiparisler.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lstSatislar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader7,
             this.columnHeader2,
             this.columnHeader3});
-            this.lstSiparisler.ContextMenuStrip = this.contextMenuStrip1;
-            this.lstSiparisler.FullRowSelect = true;
-            this.lstSiparisler.GridLines = true;
-            this.lstSiparisler.Location = new System.Drawing.Point(41, 104);
-            this.lstSiparisler.Margin = new System.Windows.Forms.Padding(4);
-            this.lstSiparisler.MultiSelect = false;
-            this.lstSiparisler.Name = "lstSiparisler";
-            this.lstSiparisler.Size = new System.Drawing.Size(927, 375);
-            this.lstSiparisler.TabIndex = 0;
-            this.lstSiparisler.UseCompatibleStateImageBehavior = false;
-            this.lstSiparisler.View = System.Windows.Forms.View.Details;
+            this.lstSatislar.ContextMenuStrip = this.contextMenuStrip1;
+            this.lstSatislar.FullRowSelect = true;
+            this.lstSatislar.GridLines = true;
+            this.lstSatislar.Location = new System.Drawing.Point(41, 104);
+            this.lstSatislar.Margin = new System.Windows.Forms.Padding(4);
+            this.lstSatislar.MultiSelect = false;
+            this.lstSatislar.Name = "lstSatislar";
+            this.lstSatislar.Size = new System.Drawing.Size(927, 375);
+            this.lstSatislar.TabIndex = 0;
+            this.lstSatislar.UseCompatibleStateImageBehavior = false;
+            this.lstSatislar.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -143,6 +143,7 @@
             this.btnGoruntule.TabIndex = 5;
             this.btnGoruntule.Text = "Görüntüle";
             this.btnGoruntule.UseVisualStyleBackColor = true;
+            this.btnGoruntule.Click += new System.EventHandler(this.btnGoruntule_Click);
             // 
             // label2
             // 
@@ -174,7 +175,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpSon);
             this.Controls.Add(this.dtpIlk);
-            this.Controls.Add(this.lstSiparisler);
+            this.Controls.Add(this.lstSatislar);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRaporYonetimi";
             this.Text = "Rapor Sistemi";
@@ -187,7 +188,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lstSiparisler;
+        private System.Windows.Forms.ListView lstSatislar;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

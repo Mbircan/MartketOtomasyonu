@@ -13,7 +13,7 @@ namespace MartketOtomasyonu.Entities
     {
         [Key]
         public int SatisID { get; set; }
-        public DateTime SatisTarihi { get; set; }
+        public DateTime? SatisTarihi { get; set; }
         public string OdemeSekli { get; set; }
 
         public virtual List<SatisDetay> SatisDetaylar { get; set; }

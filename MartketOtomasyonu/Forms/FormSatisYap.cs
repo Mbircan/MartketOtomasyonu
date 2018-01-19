@@ -264,12 +264,12 @@ namespace MartketOtomasyonu.Forms
                 try
                 {
                     var yeniSatis = new Satis();
+                    db.Satislar.Add(yeniSatis);
+                    db.SaveChanges();
                     if (rbNakit.Checked)
                         yeniSatis.OdemeSekli = rbNakit.Text;
                     else if (rbKredi.Checked)
-                        yeniSatis.OdemeSekli = rbKredi.Text;
-                    db.Satislar.Add(yeniSatis);
-                    db.SaveChanges();
+                        yeniSatis.OdemeSekli = rbKredi.Text;                                       
                     foreach (var item in sepetList)
                     {
                         var satisDetay = new SatisDetay()
@@ -295,13 +295,13 @@ namespace MartketOtomasyonu.Forms
                     db.SaveChanges();
                     tran.Commit();
                     MessageBox.Show($"{yeniSatis.SatisID} nolu satın alımınız Onaylanmıştır");
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
-                    MessageBox.Show(ex.Message);
-                }
             }
+                catch (Exception ex)
+            {
+                tran.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+        }
         }
 
         bool StokKontrol(UrunViewModel seciliUrun)
