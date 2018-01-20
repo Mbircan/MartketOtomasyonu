@@ -47,6 +47,8 @@
             this.btnUrunYonetimi.Text = "Ürün Yönetimi";
             this.btnUrunYonetimi.UseVisualStyleBackColor = true;
             this.btnUrunYonetimi.Click += new System.EventHandler(this.btnUrunYonetimi_Click);
+            this.btnUrunYonetimi.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnUrunYonetimi.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // btnRaporYonetimi
             // 
@@ -55,10 +57,12 @@
             this.btnRaporYonetimi.Margin = new System.Windows.Forms.Padding(4);
             this.btnRaporYonetimi.Name = "btnRaporYonetimi";
             this.btnRaporYonetimi.Size = new System.Drawing.Size(199, 78);
-            this.btnRaporYonetimi.TabIndex = 1;
+            this.btnRaporYonetimi.TabIndex = 4;
             this.btnRaporYonetimi.Text = "Rapor Yönetimi";
             this.btnRaporYonetimi.UseVisualStyleBackColor = true;
             this.btnRaporYonetimi.Click += new System.EventHandler(this.btnRaporYonetimi_Click);
+            this.btnRaporYonetimi.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnRaporYonetimi.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // btnStokYonetimi
             // 
@@ -67,10 +71,12 @@
             this.btnStokYonetimi.Margin = new System.Windows.Forms.Padding(4);
             this.btnStokYonetimi.Name = "btnStokYonetimi";
             this.btnStokYonetimi.Size = new System.Drawing.Size(199, 78);
-            this.btnStokYonetimi.TabIndex = 2;
+            this.btnStokYonetimi.TabIndex = 3;
             this.btnStokYonetimi.Text = "StokYönetimi";
             this.btnStokYonetimi.UseVisualStyleBackColor = true;
             this.btnStokYonetimi.Click += new System.EventHandler(this.btnStokYonetimi_Click);
+            this.btnStokYonetimi.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnStokYonetimi.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // btnSatisYap
             // 
@@ -79,10 +85,12 @@
             this.btnSatisYap.Margin = new System.Windows.Forms.Padding(4);
             this.btnSatisYap.Name = "btnSatisYap";
             this.btnSatisYap.Size = new System.Drawing.Size(199, 78);
-            this.btnSatisYap.TabIndex = 3;
+            this.btnSatisYap.TabIndex = 2;
             this.btnSatisYap.Text = "Satış Yap";
             this.btnSatisYap.UseVisualStyleBackColor = true;
             this.btnSatisYap.Click += new System.EventHandler(this.btnSatisYap_Click);
+            this.btnSatisYap.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnSatisYap.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // btnKategoriYonetimi
             // 
@@ -91,10 +99,12 @@
             this.btnKategoriYonetimi.Margin = new System.Windows.Forms.Padding(4);
             this.btnKategoriYonetimi.Name = "btnKategoriYonetimi";
             this.btnKategoriYonetimi.Size = new System.Drawing.Size(199, 78);
-            this.btnKategoriYonetimi.TabIndex = 4;
+            this.btnKategoriYonetimi.TabIndex = 1;
             this.btnKategoriYonetimi.Text = "Kategori Yönetimi";
             this.btnKategoriYonetimi.UseVisualStyleBackColor = true;
             this.btnKategoriYonetimi.Click += new System.EventHandler(this.btnKategoriYonetimi_Click);
+            this.btnKategoriYonetimi.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnKategoriYonetimi.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // btnCikis
             // 
@@ -107,6 +117,8 @@
             this.btnCikis.Text = "Çıkış";
             this.btnCikis.UseVisualStyleBackColor = true;
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
+            this.btnCikis.MouseEnter += new System.EventHandler(this.Glow_MouseEnter);
+            this.btnCikis.MouseLeave += new System.EventHandler(this.Glow_MouseLeave);
             // 
             // AnaMenu
             // 
@@ -121,7 +133,7 @@
             this.Controls.Add(this.btnUrunYonetimi);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AnaMenu";
-            this.Text = "AnaMenu";
+            this.Text = "Market Otomasyonu";
             this.ResumeLayout(false);
 
         }

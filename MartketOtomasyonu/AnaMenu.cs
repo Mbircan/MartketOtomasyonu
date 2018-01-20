@@ -52,5 +52,81 @@ namespace MartketOtomasyonu
             FormStokYonetimi formStokYonetimi = new FormStokYonetimi();
             formStokYonetimi.ShowDialog();
         }
+
+        private void Glow_MouseEnter(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            switch (button.Name)
+            {
+                case "btnUrunYonetimi":
+                    btnUrunYonetimi.UseVisualStyleBackColor = false;
+                    btnUrunYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnUrunYonetimi.BackColor = Color.Aquamarine;
+                    break;
+                case "btnKategoriYonetimi":
+                    btnKategoriYonetimi.UseVisualStyleBackColor = false;
+                    btnKategoriYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnKategoriYonetimi.BackColor = Color.Aquamarine;
+                    break;
+                case "btnSatisYap":
+                    btnSatisYap.UseVisualStyleBackColor = false;
+                    btnSatisYap.Font = new Font(Font.FontFamily, 11);
+                    btnSatisYap.BackColor = Color.Aquamarine;
+                    break;
+                case "btnStokYonetimi":
+                    btnStokYonetimi.UseVisualStyleBackColor = false;
+                    btnStokYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnStokYonetimi.BackColor = Color.Aquamarine;
+                    break;
+                case "btnRaporYonetimi":
+                    btnRaporYonetimi.UseVisualStyleBackColor = false;
+                    btnRaporYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnRaporYonetimi.BackColor = Color.Aquamarine;
+                    break;
+                case "btnCikis":
+                    btnCikis.UseVisualStyleBackColor = false;
+                    btnCikis.Font = new Font(Font.FontFamily, 11);
+                    btnCikis.BackColor = Color.Aquamarine;
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void Glow_MouseLeave(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            switch (button.Name)
+            {
+                case "btnUrunYonetimi":
+                    btnUrunYonetimi.UseVisualStyleBackColor = true;
+                    btnUrunYonetimi.Font = new Font(Font.FontFamily, 10);
+                    break;
+                case "btnKategoriYonetimi":
+                    btnKategoriYonetimi.UseVisualStyleBackColor = true;
+                    btnKategoriYonetimi.Font = new Font(Font.FontFamily, 10);
+                    break;
+                case "btnSatisYap":
+                    btnSatisYap.UseVisualStyleBackColor = true;
+                    btnSatisYap.Font = new Font(Font.FontFamily, 10);
+                    break;
+                case "btnStokYonetimi":
+                    btnStokYonetimi.UseVisualStyleBackColor = true;
+                    btnStokYonetimi.Font = new Font(Font.FontFamily, 10);
+                    break;
+                case "btnRaporYonetimi":
+                    btnRaporYonetimi.UseVisualStyleBackColor = true;
+                    btnRaporYonetimi.Font = new Font(Font.FontFamily, 10);
+                    break;
+                case "btnCikis":
+                    btnCikis.UseVisualStyleBackColor = true;
+                    btnCikis.Font = new Font(Font.FontFamily, 10);
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }
