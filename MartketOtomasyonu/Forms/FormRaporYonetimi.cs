@@ -40,17 +40,6 @@ namespace MartketOtomasyonu.Forms
                     })
                     .ToList();
                 Filtrele(satislar);
-                //foreach (var item in satislar)
-                //{
-                //    item.ToplamSiparisTutari = db.SatisDetaylar
-                //        .Where(x => x.SatisID == item.SatisID)
-                //        .Sum(x => x.Adet * x.Fiyat * (1 - x.Indirim));
-                //    ListViewItem viewItem = new ListViewItem(item.SatisID.ToString("0000"));
-                //    viewItem.SubItems.Add($"{item.SatisTarihi:dd MMMM yyyy}");
-                //    viewItem.SubItems.Add($"{item.ToplamSiparisTutari:c2}");
-                //    viewItem.SubItems.Add(item.OdemeSekli);
-                //    lstSiparisler.Items.Add(viewItem);
-                //}
                 lstSatislar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             }
             catch (Exception ex)
@@ -66,14 +55,14 @@ namespace MartketOtomasyonu.Forms
             List<SatisViewModel> sonuc = new List<SatisViewModel>();
             if (cmbOdemeSekli.SelectedIndex == 0)
             {
-                 sonuc = db.Satislar.Where(x => x.OdemeSekli == "Nakit")
-                                       .Select(x => new SatisViewModel
-                                       {
-                                           SatisID = x.SatisID,
-                                           SatisTarihi = x.SatisTarihi ?? DateTime.Now,
-                                           ToplamSiparisTutari = 0,
-                                           OdemeSekli = x.OdemeSekli
-                                       }).ToList();
+                sonuc = db.Satislar.Where(x => x.OdemeSekli == "Nakit")
+                                      .Select(x => new SatisViewModel
+                                      {
+                                          SatisID = x.SatisID,
+                                          SatisTarihi = x.SatisTarihi ?? DateTime.Now,
+                                          ToplamSiparisTutari = 0,
+                                          OdemeSekli = x.OdemeSekli
+                                      }).ToList();
             }
             else if (cmbOdemeSekli.SelectedIndex == 1)
             {
@@ -88,7 +77,7 @@ namespace MartketOtomasyonu.Forms
             }
             else if (cmbOdemeSekli.SelectedIndex == 2)
             {
-                sonuc = db.Satislar.Where(x => x.OdemeSekli == "Nakit"||x.OdemeSekli=="Kredi Kartı")
+                sonuc = db.Satislar.Where(x => x.OdemeSekli == "Nakit" || x.OdemeSekli == "Kredi Kartı")
                                        .Select(x => new SatisViewModel
                                        {
                                            SatisID = x.SatisID,
@@ -99,6 +88,7 @@ namespace MartketOtomasyonu.Forms
             }
             Filtrele(sonuc);
         }
+
         private void Filtrele(List<SatisViewModel> satisViewModel)
         {
             MyContext db = new MyContext();
@@ -106,7 +96,7 @@ namespace MartketOtomasyonu.Forms
             {
                 item.ToplamSiparisTutari = db.SatisDetaylar
                     .Where(x => x.SatisID == item.SatisID)
-                    .Sum(x => x.Adet * x.Fiyat * (1 - x.Indirim));
+                    .Sum(x => x.Adet * x.Fiyat * (1 - x.Indirim) * (1 + x.KDV));
                 ListViewItem viewItem = new ListViewItem(item.SatisID.ToString("0000"));
                 viewItem.SubItems.Add($"{item.SatisTarihi:dd MMMM yyyy}");
                 viewItem.SubItems.Add($"{item.ToplamSiparisTutari:c2}");
@@ -119,7 +109,7 @@ namespace MartketOtomasyonu.Forms
         {
             MyContext db = new MyContext();
             lstSatislar.Items.Clear();
-            var sonuc = db.Satislar.Where(x => x.SatisTarihi >= dtpIlk.Value && x.SatisTarihi < dtpSon.Value).Select(y => new SatisViewModel
+            var sonuc = db.Satislar.Where(x => dtpIlk.Value <= x.SatisTarihi && dtpSon.Value >= x.SatisTarihi).Select(y => new SatisViewModel
             {
                 OdemeSekli = y.OdemeSekli,
                 SatisID = y.SatisID,
@@ -127,6 +117,37 @@ namespace MartketOtomasyonu.Forms
                 ToplamSiparisTutari = 0
             }).ToList();
             Filtrele(sonuc);
+        }
+
+        private void detaylarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstSatislar.SelectedItems == null) return;
+            FormSatisDetaylari formSatisDetaylari = new FormSatisDetaylari();
+            var satisNo = Convert.ToInt32(lstSatislar.SelectedItems[0].Text);
+            MyContext db = new MyContext();
+            var sonuc = db.SatisDetaylar
+                          .Where(x => x.SatisID == satisNo)
+                          .Select(y => new SatisDetayViewModel
+                          {
+                              SatisID = y.SatisID,
+                              UrunID = y.UrunID,
+                              Adet = y.Adet,
+                              Fiyat = y.Fiyat,
+                              Indirim = y.Indirim,
+                              KDV = y.KDV
+                          }).ToList();
+            sonuc.ForEach(x =>
+            {
+                ListViewItem viewItem = new ListViewItem(x.SatisID.ToString());
+                viewItem.SubItems.Add(x.UrunID.ToString());
+                viewItem.SubItems.Add(x.Adet.ToString());
+                viewItem.SubItems.Add($"{x.Fiyat:c2}");
+                viewItem.SubItems.Add($"{x.Indirim:c2}");
+                viewItem.SubItems.Add(x.KDV.ToString());
+                formSatisDetaylari.lstSatisDetaylar.Items.Add(viewItem);
+            });
+            formSatisDetaylari.lstSatisDetaylar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            formSatisDetaylari.ShowDialog();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,17 +20,6 @@ namespace MartketOtomasyonu.Forms
         {
             InitializeComponent();
         }
-
-        private void btnAnasayfa_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void mtxtBarkod_KeyDown(object sender, KeyEventArgs e)
-        {
-
-
-        }
-
         List<SepetViewModel> sepetList = new List<SepetViewModel>();
         List<UrunViewModel> urunList = new List<UrunViewModel>();
 
@@ -67,7 +57,8 @@ namespace MartketOtomasyonu.Forms
                                 Fiyat = ur.Fiyat,
                                 Stok = ur.Stok,
                                 KDV = ur.KDV,
-                                BarkodID = ur.BarkodID
+                                BarkodID = ur.BarkodID,
+                                 UrunResmi=ur.UrunResmi
                             };
                 lstUrunler.DataSource = sonuc.ToList();
             }
@@ -77,54 +68,16 @@ namespace MartketOtomasyonu.Forms
             }
         }
 
-        private void btnSiparisVer_Click(object sender, EventArgs e)
-        {
-            if (sepetList.Count == 0)
-            {
-                MessageBox.Show("Önce sepete ürün ekleyiniz.");
-                return;
-            }
-            string mesaj = $"{nmrToplam.Value:c2} tutarındaki siparişi onaylıyor musunuz?";
-            var cevap = MessageBox.Show(mesaj, "Sipariş Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (cevap != DialogResult.Yes) return;
-            MyContext db = new MyContext();
-            using (var tran = db.Database.BeginTransaction())
-            {
-                try
-                {
-                    var yeniSatis = new Satis();
-                    db.Satislar.Add(yeniSatis);
-                    db.SaveChanges();
-                    foreach (var item in sepetList)
-                    {
-                        var satisDetay = new SatisDetay()
-                        {
-                            SatisID = yeniSatis.SatisID,
-                            UrunID = item.UrunID,
-                            Fiyat = item.Fiyat,
-                            Adet = item.Adet,
-                            Indirim = item.Indirim
-
-                        };
-                        db.SatisDetaylar.Add(satisDetay);
-                    }
-                    db.SaveChanges();
-                    tran.Commit();
-                    MessageBox.Show($"{yeniSatis.SatisID} nolu satışınız Onaylanmıştır.");
-                }
-                catch (Exception ex)
-                {
-                    tran.Rollback();
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
         private void FormSiparis_Load(object sender, EventArgs e)
         {
             VerileriGetir();
-            nNakit.Controls.RemoveAt(0);
+            nNakit.TextChanged += new EventHandler(nNakit_TextChanged);
         }
+        private void nNakit_TextChanged(object sender, EventArgs e)
+        {
+            lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
+        }
+
 
         private void txtBarkod_KeyDown(object sender, KeyEventArgs e)
         {
@@ -182,42 +135,6 @@ namespace MartketOtomasyonu.Forms
             }
         }
 
-        private void btnSepeteEkle_Click_1(object sender, EventArgs e)
-        {
-            if (lstUrunler.SelectedItem == null) return;
-            var seciliUrun = lstUrunler.SelectedItem as UrunViewModel;
-            bool kontrol = StokKontrol(seciliUrun);
-            if (!kontrol)
-            {
-                MessageBox.Show("Stoktan fazlasını ekleyemezsiniz.");
-                return;
-            }
-            bool varmi = false;
-            sepetList.ForEach(x =>
-            {
-                if (x.UrunAdi == seciliUrun.UrunAdi)
-                {
-                    varmi = true;
-                    x.Adet++;
-                }
-
-            });
-
-            if (!varmi)
-            {
-                var model = new SepetViewModel()
-                {
-                    UrunID = seciliUrun.UrunID,
-                    Indirim = nmrIndirim.Value,
-                    UrunAdi = seciliUrun.UrunAdi,
-                    KDV = seciliUrun.KDV,
-                    Fiyat = seciliUrun.Fiyat ?? 0
-                };
-                sepetList.Add(model);
-            }
-            SepetGuncelle();
-        }
-
         private void txtAra_TextChanged_1(object sender, EventArgs e)
         {
             VerileriGetir(txtAra.Text);
@@ -234,75 +151,23 @@ namespace MartketOtomasyonu.Forms
                 lblStok.BackColor = Color.Yellow;
             else
                 lblStok.BackColor = Color.Green;
-
-
-        }
-
-        private void btnSiparisVer_Click_1(object sender, EventArgs e)
-        {
-            if (sepetList.Count == 0)
-            {
-                MessageBox.Show("Önce sepete ürün ekleyiniz.");
-                return;
-            }
-            if (!rbNakit.Checked && !rbKredi.Checked)
-            {
-                MessageBox.Show("Ödeme şeklini seçiniz.");
-                return;
-            }
-            if (rbNakit.Checked && nmrToplam.Value > nNakit.Value)
-            {
-                MessageBox.Show("Girilen para yetersiz.");
-                return;
-            }
-            string mesaj = $"{nmrToplam.Value:c2} tutarındaki satın alımı onaylıyor musunuz?";
-            var cevap = MessageBox.Show(mesaj, "Satış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (cevap != DialogResult.Yes) return;
-            MyContext db = new MyContext();
-            using (var tran = db.Database.BeginTransaction())
+            if (seciliUrun.UrunResmi != null)
             {
                 try
                 {
-                    var yeniSatis = new Satis();
-                    db.Satislar.Add(yeniSatis);
-                    db.SaveChanges();
-                    if (rbNakit.Checked)
-                        yeniSatis.OdemeSekli = rbNakit.Text;
-                    else if (rbKredi.Checked)
-                        yeniSatis.OdemeSekli = rbKredi.Text;                                       
-                    foreach (var item in sepetList)
-                    {
-                        var satisDetay = new SatisDetay()
-                        {
-                            SatisID = yeniSatis.SatisID,
-                            UrunID = item.UrunID,
-                            Fiyat = item.Fiyat,
-                            Adet = item.Adet,
-                            Indirim = item.Indirim,
-                        };
-                        db.SatisDetaylar.Add(satisDetay);
-                    }
-                    db.SaveChanges();
-                    var siparis = db.SatisDetaylar.Where(x => x.SatisID == yeniSatis.SatisID).ToList();
-                    var satis = db.Satislar.Find(yeniSatis.SatisID);
-                    satis.SatisTarihi = DateTime.Now;
-                    foreach (var item in siparis)
-                    {
-                        var urun = db.Urunler.Find(item.UrunID);
-                        urun.Stok -= (short)item.Adet;
-                    }
-                    VerileriGetir();
-                    db.SaveChanges();
-                    tran.Commit();
-                    MessageBox.Show($"{yeniSatis.SatisID} nolu satın alımınız Onaylanmıştır");
-            }
+                    MemoryStream stream = new MemoryStream(seciliUrun.UrunResmi);
+                    pbUrunResmi.Image = new Bitmap(stream);
+                }
                 catch (Exception ex)
-            {
-                tran.Rollback();
-                MessageBox.Show(ex.Message);
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+            else
+                pbUrunResmi.Image = null;
+
         }
-        }
+
 
         bool StokKontrol(UrunViewModel seciliUrun)
         {
@@ -338,7 +203,8 @@ namespace MartketOtomasyonu.Forms
                 nNakit.ReadOnly = false;
                 lblPara.Visible = true;
                 lblParaUstu.Visible = true;
-                nNakit.Value = 0;
+                nNakit.ResetText();
+                nNakit.Controls[0].Visible = true;
             }
 
         }
@@ -354,11 +220,128 @@ namespace MartketOtomasyonu.Forms
                 nNakit.Visible = true;
                 nNakit.ReadOnly = true;
                 nNakit.Value = nmrToplam.Value;
+                nNakit.Controls[0].Visible = false;
             }
 
         }
 
         private void nNakit_ValueChanged(object sender, EventArgs e)
+        {
+            lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
+        }
+
+        private void btnSatisYap_Click(object sender, EventArgs e)
+        {
+            if (sepetList.Count == 0)
+            {
+                MessageBox.Show("Önce sepete ürün ekleyiniz.");
+                return;
+            }
+            if (!rbNakit.Checked && !rbKredi.Checked)
+            {
+                MessageBox.Show("Ödeme şeklini seçiniz.");
+                return;
+            }
+            if (rbNakit.Checked && nmrToplam.Value > nNakit.Value)
+            {
+                MessageBox.Show("Girilen para yetersiz.");
+                return;
+            }
+            string mesaj = $"{nmrToplam.Value:c2} tutarındaki satın alımı onaylıyor musunuz?";
+            var cevap = MessageBox.Show(mesaj, "Satış Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cevap != DialogResult.Yes) return;
+            MyContext db = new MyContext();
+            using (var tran = db.Database.BeginTransaction())
+            {
+                try
+                {
+                    var yeniSatis = new Satis();
+                    db.Satislar.Add(yeniSatis);
+                    db.SaveChanges();
+                    if (rbNakit.Checked)
+                        yeniSatis.OdemeSekli = rbNakit.Text;
+                    else if (rbKredi.Checked)
+                        yeniSatis.OdemeSekli = rbKredi.Text;
+                    foreach (var item in sepetList)
+                    {
+                        var satisDetay = new SatisDetay()
+                        {
+                            SatisID = yeniSatis.SatisID,
+                            UrunID = item.UrunID,
+                            Fiyat = item.Fiyat,
+                            Adet = item.Adet,
+                            Indirim = item.Indirim,
+                            KDV = item.KDV,
+                        };
+                        db.SatisDetaylar.Add(satisDetay);
+                    }
+                    db.SaveChanges();
+                    var siparis = db.SatisDetaylar.Where(x => x.SatisID == yeniSatis.SatisID).ToList();
+                    var satis = db.Satislar.Find(yeniSatis.SatisID);
+                    satis.SatisTarihi = DateTime.Now;
+                    foreach (var item in siparis)
+                    {
+                        var urun = db.Urunler.Find(item.UrunID);
+                        urun.Stok -= (short)item.Adet;
+                    }
+                    VerileriGetir();
+                    db.SaveChanges();
+                    tran.Commit();
+                    MessageBox.Show($"{yeniSatis.SatisID} nolu satın alımınız Onaylanmıştır");
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnSepeteEkle_Click(object sender, EventArgs e)
+        {
+            if (lstUrunler.SelectedItem == null) return;
+            var seciliUrun = lstUrunler.SelectedItem as UrunViewModel;
+            bool kontrol = StokKontrol(seciliUrun);
+            if (!kontrol)
+            {
+                MessageBox.Show("Stoktan fazlasını ekleyemezsiniz.");
+                return;
+            }
+            bool varmi = false;
+            sepetList.ForEach(x =>
+            {
+                if (x.UrunAdi == seciliUrun.UrunAdi)
+                {
+                    varmi = true;
+                    x.Adet++;
+                }
+
+            });
+
+            if (!varmi)
+            {
+                var model = new SepetViewModel()
+                {
+                    UrunID = seciliUrun.UrunID,
+                    Indirim = nmrIndirim.Value,
+                    UrunAdi = seciliUrun.UrunAdi,
+                    KDV = seciliUrun.KDV,
+                    Fiyat = seciliUrun.Fiyat ?? 0
+                };
+                sepetList.Add(model);
+            }
+            SepetGuncelle();
+        }
+
+        private void sepettenÇıkarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstSepet.SelectedItem == null) return;
+            var seciliUrun = lstSepet.SelectedItem as SepetViewModel;
+            sepetList.Remove(seciliUrun);
+            SepetGuncelle();
+        }
+
+        private void nmrToplam_ValueChanged(object sender, EventArgs e)
         {
             lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
         }

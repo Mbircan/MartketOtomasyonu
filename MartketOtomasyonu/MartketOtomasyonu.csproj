@@ -73,6 +73,12 @@
     <Compile Include="Forms\FormKategoriYonetimi.Designer.cs">
       <DependentUpon>FormKategoriYonetimi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSatisDetaylari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSatisDetaylari.Designer.cs">
+      <DependentUpon>FormSatisDetaylari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSatisYap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,9 +119,18 @@
     <Compile Include="Migrations\201801191928172_a4.Designer.cs">
       <DependentUpon>201801191928172_a4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801200849401_a5.cs" />
+    <Compile Include="Migrations\201801200849401_a5.Designer.cs">
+      <DependentUpon>201801200849401_a5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801200925327_a6.cs" />
+    <Compile Include="Migrations\201801200925327_a6.Designer.cs">
+      <DependentUpon>201801200925327_a6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\SatisDetayViewModel.cs" />
     <Compile Include="ViewModels\SepetViewModel.cs" />
     <Compile Include="ViewModels\SatisViewModel.cs" />
     <Compile Include="ViewModels\StokViewModel.cs" />
@@ -125,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormKategoriYonetimi.resx">
       <DependentUpon>FormKategoriYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSatisDetaylari.resx">
+      <DependentUpon>FormSatisDetaylari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSatisYap.resx">
       <DependentUpon>FormSatisYap.cs</DependentUpon>
@@ -149,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801191928172_a4.resx">
       <DependentUpon>201801191928172_a4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801200849401_a5.resx">
+      <DependentUpon>201801200849401_a5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801200925327_a6.resx">
+      <DependentUpon>201801200925327_a6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

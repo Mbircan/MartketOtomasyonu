@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nmrToplam = new System.Windows.Forms.NumericUpDown();
@@ -40,19 +41,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.lblStok = new System.Windows.Forms.Label();
-            this.btnSiparisVer = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSatisYap = new System.Windows.Forms.Button();
+            this.gbOdeme = new System.Windows.Forms.GroupBox();
             this.nNakit = new System.Windows.Forms.NumericUpDown();
             this.lblParaUstu = new System.Windows.Forms.Label();
             this.lblPara = new System.Windows.Forms.Label();
             this.lblOdenen = new System.Windows.Forms.Label();
             this.rbKredi = new System.Windows.Forms.RadioButton();
             this.rbNakit = new System.Windows.Forms.RadioButton();
+            this.pbUrunResmi = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sepettenÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nmrToplam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrIndirim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrKDV)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbOdeme.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nNakit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUrunResmi)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -70,12 +76,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(464, 329);
+            this.label1.Location = new System.Drawing.Point(399, 327);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 24);
+            this.label1.Size = new System.Drawing.Size(122, 24);
             this.label1.TabIndex = 21;
-            this.label1.Text = "Tutar";
+            this.label1.Text = "Toplam Tutar";
             // 
             // nmrToplam
             // 
@@ -93,6 +99,7 @@
             this.nmrToplam.Size = new System.Drawing.Size(124, 28);
             this.nmrToplam.TabIndex = 20;
             this.nmrToplam.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nmrToplam.ValueChanged += new System.EventHandler(this.nmrToplam_ValueChanged);
             // 
             // nmrIndirim
             // 
@@ -103,7 +110,7 @@
             0,
             0,
             65536});
-            this.nmrIndirim.Location = new System.Drawing.Point(259, 186);
+            this.nmrIndirim.Location = new System.Drawing.Point(258, 133);
             this.nmrIndirim.Margin = new System.Windows.Forms.Padding(4);
             this.nmrIndirim.Maximum = new decimal(new int[] {
             1,
@@ -145,17 +152,18 @@
             // btnSepeteEkle
             // 
             this.btnSepeteEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSepeteEkle.Location = new System.Drawing.Point(259, 119);
+            this.btnSepeteEkle.Location = new System.Drawing.Point(259, 66);
             this.btnSepeteEkle.Margin = new System.Windows.Forms.Padding(4);
             this.btnSepeteEkle.Name = "btnSepeteEkle";
             this.btnSepeteEkle.Size = new System.Drawing.Size(147, 59);
             this.btnSepeteEkle.TabIndex = 16;
             this.btnSepeteEkle.Text = "Sepete Ekle";
             this.btnSepeteEkle.UseVisualStyleBackColor = true;
-            this.btnSepeteEkle.Click += new System.EventHandler(this.btnSepeteEkle_Click_1);
+            this.btnSepeteEkle.Click += new System.EventHandler(this.btnSepeteEkle_Click);
             // 
             // lstSepet
             // 
+            this.lstSepet.ContextMenuStrip = this.contextMenuStrip1;
             this.lstSepet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lstSepet.FormattingEnabled = true;
             this.lstSepet.ItemHeight = 18;
@@ -201,41 +209,41 @@
             // 
             this.lblStok.AutoSize = true;
             this.lblStok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblStok.Location = new System.Drawing.Point(268, 78);
+            this.lblStok.Location = new System.Drawing.Point(259, 40);
             this.lblStok.Name = "lblStok";
             this.lblStok.Size = new System.Drawing.Size(0, 18);
             this.lblStok.TabIndex = 26;
             this.lblStok.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnSiparisVer
+            // btnSatisYap
             // 
-            this.btnSiparisVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSiparisVer.Location = new System.Drawing.Point(597, 438);
-            this.btnSiparisVer.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSiparisVer.Name = "btnSiparisVer";
-            this.btnSiparisVer.Size = new System.Drawing.Size(147, 59);
-            this.btnSiparisVer.TabIndex = 27;
-            this.btnSiparisVer.Text = "Satış Yap";
-            this.btnSiparisVer.UseVisualStyleBackColor = true;
-            this.btnSiparisVer.Click += new System.EventHandler(this.btnSiparisVer_Click_1);
+            this.btnSatisYap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSatisYap.Location = new System.Drawing.Point(597, 438);
+            this.btnSatisYap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSatisYap.Name = "btnSatisYap";
+            this.btnSatisYap.Size = new System.Drawing.Size(147, 59);
+            this.btnSatisYap.TabIndex = 27;
+            this.btnSatisYap.Text = "Satış Yap";
+            this.btnSatisYap.UseVisualStyleBackColor = true;
+            this.btnSatisYap.Click += new System.EventHandler(this.btnSatisYap_Click);
             // 
-            // groupBox1
+            // gbOdeme
             // 
-            this.groupBox1.Controls.Add(this.nNakit);
-            this.groupBox1.Controls.Add(this.lblParaUstu);
-            this.groupBox1.Controls.Add(this.lblPara);
-            this.groupBox1.Controls.Add(this.lblOdenen);
-            this.groupBox1.Controls.Add(this.rbKredi);
-            this.groupBox1.Controls.Add(this.rbNakit);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(691, 59);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(319, 342);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ödeme Şekli";
+            this.gbOdeme.Controls.Add(this.nNakit);
+            this.gbOdeme.Controls.Add(this.lblParaUstu);
+            this.gbOdeme.Controls.Add(this.lblPara);
+            this.gbOdeme.Controls.Add(this.lblOdenen);
+            this.gbOdeme.Controls.Add(this.rbKredi);
+            this.gbOdeme.Controls.Add(this.rbNakit);
+            this.gbOdeme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gbOdeme.Location = new System.Drawing.Point(691, 59);
+            this.gbOdeme.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbOdeme.Name = "gbOdeme";
+            this.gbOdeme.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbOdeme.Size = new System.Drawing.Size(319, 342);
+            this.gbOdeme.TabIndex = 28;
+            this.gbOdeme.TabStop = false;
+            this.gbOdeme.Text = "Ödeme Şekli";
             // 
             // nNakit
             // 
@@ -315,13 +323,38 @@
             this.rbNakit.UseVisualStyleBackColor = true;
             this.rbNakit.CheckedChanged += new System.EventHandler(this.rbNakit_CheckedChanged);
             // 
+            // pbUrunResmi
+            // 
+            this.pbUrunResmi.Location = new System.Drawing.Point(259, 168);
+            this.pbUrunResmi.Name = "pbUrunResmi";
+            this.pbUrunResmi.Size = new System.Drawing.Size(146, 111);
+            this.pbUrunResmi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbUrunResmi.TabIndex = 29;
+            this.pbUrunResmi.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sepettenÇıkarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 28);
+            // 
+            // sepettenÇıkarToolStripMenuItem
+            // 
+            this.sepettenÇıkarToolStripMenuItem.Name = "sepettenÇıkarToolStripMenuItem";
+            this.sepettenÇıkarToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.sepettenÇıkarToolStripMenuItem.Text = "Sepetten Çıkar";
+            this.sepettenÇıkarToolStripMenuItem.Click += new System.EventHandler(this.sepettenÇıkarToolStripMenuItem_Click);
+            // 
             // FormSatisYap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 542);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnSiparisVer);
+            this.Controls.Add(this.pbUrunResmi);
+            this.Controls.Add(this.gbOdeme);
+            this.Controls.Add(this.btnSatisYap);
             this.Controls.Add(this.lblStok);
             this.Controls.Add(this.txtBarkod);
             this.Controls.Add(this.label3);
@@ -341,9 +374,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmrToplam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrIndirim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrKDV)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbOdeme.ResumeLayout(false);
+            this.gbOdeme.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nNakit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUrunResmi)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,13 +398,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBarkod;
         private System.Windows.Forms.Label lblStok;
-        private System.Windows.Forms.Button btnSiparisVer;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSatisYap;
+        private System.Windows.Forms.GroupBox gbOdeme;
         private System.Windows.Forms.RadioButton rbKredi;
         private System.Windows.Forms.RadioButton rbNakit;
         private System.Windows.Forms.Label lblParaUstu;
         private System.Windows.Forms.Label lblPara;
         private System.Windows.Forms.Label lblOdenen;
         private System.Windows.Forms.NumericUpDown nNakit;
+        private System.Windows.Forms.PictureBox pbUrunResmi;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sepettenÇıkarToolStripMenuItem;
     }
 }

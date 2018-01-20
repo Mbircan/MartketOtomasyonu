@@ -39,29 +39,6 @@ namespace MartketOtomasyonu.Forms
             }
         }
 
-        private void btnUrunler_Click(object sender, EventArgs e)
-        {
-            FormUrunYonetimi urunlerForm = new FormUrunYonetimi();
-            urunlerForm.Text = "Ürünler";
-            urunlerForm.ShowDialog();
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnKategoriler_Click(object sender, EventArgs e)
-        {
-            FormUrunYonetimi formUrunler = new FormUrunYonetimi();
-            this.Hide();
-            formUrunler.Show();
-        }
-
-        private void btnAnasayfa_Click(object sender, EventArgs e)
-        {
-        }
-
         private void btnEkle_Click(object sender, EventArgs e)
         {
             Kategori kategori = new Kategori()
@@ -167,12 +144,6 @@ namespace MartketOtomasyonu.Forms
             txtKategoriAdi.Text = SeciliKategori.KategoriAdi;
             rtxtAciklama.Text = SeciliKategori.Aciklama;
             nKDV.Value = SeciliKategori.KDV;
-        }
-
-        private void btnSiparisler_Click(object sender, EventArgs e)
-        {
-            FormRaporYonetimi formSiparisYonetimi = new FormRaporYonetimi();
-            formSiparisYonetimi.ShowDialog();
         }
     }
 }

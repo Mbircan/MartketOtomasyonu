@@ -34,8 +34,6 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.teslimEdildiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpIlk = new System.Windows.Forms.DateTimePicker();
             this.dtpSon = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +41,9 @@
             this.btnGoruntule = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1.SuspendLayout();
+            this.cmDetay = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detaylarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmDetay.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstSatislar
@@ -53,7 +53,7 @@
             this.columnHeader7,
             this.columnHeader2,
             this.columnHeader3});
-            this.lstSatislar.ContextMenuStrip = this.contextMenuStrip1;
+            this.lstSatislar.ContextMenuStrip = this.cmDetay;
             this.lstSatislar.FullRowSelect = true;
             this.lstSatislar.GridLines = true;
             this.lstSatislar.Location = new System.Drawing.Point(41, 104);
@@ -84,20 +84,6 @@
             // 
             this.columnHeader3.Text = "Ödeme Şekli";
             this.columnHeader3.Width = 114;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.teslimEdildiToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(163, 28);
-            // 
-            // teslimEdildiToolStripMenuItem
-            // 
-            this.teslimEdildiToolStripMenuItem.Name = "teslimEdildiToolStripMenuItem";
-            this.teslimEdildiToolStripMenuItem.Size = new System.Drawing.Size(162, 24);
-            this.teslimEdildiToolStripMenuItem.Text = "Teslim Edildi";
             // 
             // dtpIlk
             // 
@@ -163,6 +149,21 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Bitiş";
             // 
+            // cmDetay
+            // 
+            this.cmDetay.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmDetay.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detaylarToolStripMenuItem});
+            this.cmDetay.Name = "cmDetay";
+            this.cmDetay.Size = new System.Drawing.Size(135, 28);
+            // 
+            // detaylarToolStripMenuItem
+            // 
+            this.detaylarToolStripMenuItem.Name = "detaylarToolStripMenuItem";
+            this.detaylarToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
+            this.detaylarToolStripMenuItem.Text = "Detaylar";
+            this.detaylarToolStripMenuItem.Click += new System.EventHandler(this.detaylarToolStripMenuItem_Click);
+            // 
             // FormRaporYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,7 +181,7 @@
             this.Name = "FormRaporYonetimi";
             this.Text = "Rapor Sistemi";
             this.Load += new System.EventHandler(this.FormSiparisYonetimi_Load);
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.cmDetay.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,8 +192,6 @@
         private System.Windows.Forms.ListView lstSatislar;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem teslimEdildiToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.DateTimePicker dtpIlk;
@@ -202,5 +201,7 @@
         private System.Windows.Forms.Button btnGoruntule;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ContextMenuStrip cmDetay;
+        private System.Windows.Forms.ToolStripMenuItem detaylarToolStripMenuItem;
     }
 }

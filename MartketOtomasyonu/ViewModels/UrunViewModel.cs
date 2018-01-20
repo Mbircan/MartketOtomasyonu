@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MartketOtomasyonu.ViewModels
 {
-    class UrunViewModel
+    public class UrunViewModel
     {
         public string BarkodID { get; set; }
         public int UrunID { get; set; }
@@ -16,7 +16,7 @@ namespace MartketOtomasyonu.ViewModels
         public string KategoriAdi { get; set; }
         public decimal Indirim { get; set; }
         public decimal KDV { get; set; }
-
+        public byte[] UrunResmi { get; set; }
         public override string ToString() => $"{KategoriAdi}, {UrunAdi} , {Fiyat:c2}";
     }
 }

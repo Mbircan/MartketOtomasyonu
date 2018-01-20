@@ -55,7 +55,7 @@
             // 
             this.nStok.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nStok.Location = new System.Drawing.Point(131, 206);
-            this.nStok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nStok.Margin = new System.Windows.Forms.Padding(4);
             this.nStok.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -70,7 +70,7 @@
             // 
             this.btnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSil.Location = new System.Drawing.Point(288, 474);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSil.Margin = new System.Windows.Forms.Padding(4);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(99, 55);
             this.btnSil.TabIndex = 39;
@@ -82,7 +82,7 @@
             // 
             this.btnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGuncelle.Location = new System.Drawing.Point(172, 474);
-            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(99, 55);
             this.btnGuncelle.TabIndex = 38;
@@ -94,7 +94,7 @@
             // 
             this.btnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnKaydet.Location = new System.Drawing.Point(44, 474);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKaydet.Margin = new System.Windows.Forms.Padding(4);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(99, 55);
             this.btnKaydet.TabIndex = 37;
@@ -107,7 +107,7 @@
             this.cmbKategori.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbKategori.FormattingEnabled = true;
             this.cmbKategori.Location = new System.Drawing.Point(128, 151);
-            this.cmbKategori.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbKategori.Margin = new System.Windows.Forms.Padding(4);
             this.cmbKategori.Name = "cmbKategori";
             this.cmbKategori.Size = new System.Drawing.Size(239, 30);
             this.cmbKategori.TabIndex = 31;
@@ -117,7 +117,7 @@
             this.nFiyat.DecimalPlaces = 2;
             this.nFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.nFiyat.Location = new System.Drawing.Point(129, 96);
-            this.nFiyat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nFiyat.Margin = new System.Windows.Forms.Padding(4);
             this.nFiyat.Maximum = new decimal(new int[] {
             999999,
             0,
@@ -154,7 +154,7 @@
             // 
             this.txtAra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtAra.Location = new System.Drawing.Point(447, 52);
-            this.txtAra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAra.Margin = new System.Windows.Forms.Padding(4);
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(364, 28);
             this.txtAra.TabIndex = 35;
@@ -164,7 +164,7 @@
             // 
             this.txtUrunAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtUrunAdi.Location = new System.Drawing.Point(129, 49);
-            this.txtUrunAdi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrunAdi.Margin = new System.Windows.Forms.Padding(4);
             this.txtUrunAdi.Name = "txtUrunAdi";
             this.txtUrunAdi.Size = new System.Drawing.Size(237, 28);
             this.txtUrunAdi.TabIndex = 29;
@@ -186,7 +186,7 @@
             this.lstUrunler.FormattingEnabled = true;
             this.lstUrunler.ItemHeight = 22;
             this.lstUrunler.Location = new System.Drawing.Point(447, 87);
-            this.lstUrunler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstUrunler.Margin = new System.Windows.Forms.Padding(4);
             this.lstUrunler.Name = "lstUrunler";
             this.lstUrunler.Size = new System.Drawing.Size(364, 378);
             this.lstUrunler.TabIndex = 36;
@@ -218,7 +218,7 @@
             // 
             this.txtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtBarkod.Location = new System.Drawing.Point(131, 272);
-            this.txtBarkod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBarkod.Margin = new System.Windows.Forms.Padding(4);
             this.txtBarkod.Name = "txtBarkod";
             this.txtBarkod.ReadOnly = true;
             this.txtBarkod.Size = new System.Drawing.Size(171, 26);
@@ -227,7 +227,7 @@
             // btnBarkodOlustur
             // 
             this.btnBarkodOlustur.Location = new System.Drawing.Point(311, 261);
-            this.btnBarkodOlustur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBarkodOlustur.Margin = new System.Windows.Forms.Padding(4);
             this.btnBarkodOlustur.Name = "btnBarkodOlustur";
             this.btnBarkodOlustur.Size = new System.Drawing.Size(100, 46);
             this.btnBarkodOlustur.TabIndex = 48;
@@ -238,7 +238,7 @@
             // pbUrun
             // 
             this.pbUrun.Location = new System.Drawing.Point(131, 340);
-            this.pbUrun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbUrun.Margin = new System.Windows.Forms.Padding(4);
             this.pbUrun.Name = "pbUrun";
             this.pbUrun.Size = new System.Drawing.Size(172, 87);
             this.pbUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -283,7 +283,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUrunYonetimi";
             this.Text = "Ürün Yönetimi";
-            this.Load += new System.EventHandler(this.FormUrunler_Load);
+            this.Load += new System.EventHandler(this.FormUrunYonetimi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nStok)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUrun)).EndInit();

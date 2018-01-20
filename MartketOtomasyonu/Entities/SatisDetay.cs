@@ -21,6 +21,7 @@ namespace MartketOtomasyonu.Entities
         public int Adet { get; set; }
         public decimal Fiyat { get; set; }
         public decimal Indirim { get; set; } = 0;
+        public decimal KDV { get; set; }
 
         [ForeignKey("SatisID")]
         public virtual Satis Satis { get; set; }

@@ -21,22 +21,6 @@ namespace MartketOtomasyonu.Forms
             InitializeComponent();
         }
 
-        private void btnAnasayfa_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void btnKategoriler_Click(object sender, EventArgs e)
-        {
-            FormKategoriYonetimi formKategoriler = new FormKategoriYonetimi();
-            this.Hide();
-            formKategoriler.Show();
-        }
-
-        private void FormUrunler_Load(object sender, EventArgs e)
-        {
-            VerileriGetir();
-        }
-
         void VerileriGetir()
         {
             try
@@ -49,7 +33,6 @@ namespace MartketOtomasyonu.Forms
                 lstUrunler.DataSource = db.Urunler.OrderBy(x => x.UrunAdi).ToList();
                 lstUrunler.DisplayMember = "UrunAdi";
                 lstUrunler.ValueMember = "UrunID";
-                this.Text = $"Toplam ürün sayısı :{db.Urunler.Count()} , Toplam ürün maliyeti : {db.Urunler.Sum(x => x.Fiyat * x.Stok):c2}- {DateTime.Now:dd MMM yy ddd}";
             }
             catch (Exception ex)
             {
@@ -200,12 +183,6 @@ namespace MartketOtomasyonu.Forms
 
         }
 
-        private void btnSiparisler_Click(object sender, EventArgs e)
-        {
-            FormRaporYonetimi formSiparisYonetimi = new FormRaporYonetimi();
-            formSiparisYonetimi.ShowDialog();
-        }
-
         private void btnBarkodOlustur_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
@@ -241,6 +218,11 @@ namespace MartketOtomasyonu.Forms
                 resimDosyası = memoryStream.ToArray();
                 pbUrun.Image = new Bitmap(memoryStream);
             }
+        }
+
+        private void FormUrunYonetimi_Load(object sender, EventArgs e)
+        {
+            VerileriGetir();
         }
     }
 }

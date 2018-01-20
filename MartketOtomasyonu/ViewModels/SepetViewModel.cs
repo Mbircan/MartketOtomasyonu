@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MartketOtomasyonu.ViewModels
 {
-    class SepetViewModel
+    public class SepetViewModel
     {
         public string BarkodID { get; set; }
         public int UrunID { get; set; }
