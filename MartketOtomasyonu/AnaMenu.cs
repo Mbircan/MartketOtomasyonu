@@ -60,32 +60,32 @@ namespace MartketOtomasyonu
             {
                 case "btnUrunYonetimi":
                     btnUrunYonetimi.UseVisualStyleBackColor = false;
-                    btnUrunYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnUrunYonetimi.Font = new Font(Font.FontFamily, 12);
                     btnUrunYonetimi.BackColor = Color.Aquamarine;
                     break;
                 case "btnKategoriYonetimi":
                     btnKategoriYonetimi.UseVisualStyleBackColor = false;
-                    btnKategoriYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnKategoriYonetimi.Font = new Font(Font.FontFamily, 12);
                     btnKategoriYonetimi.BackColor = Color.Aquamarine;
                     break;
                 case "btnSatisYap":
                     btnSatisYap.UseVisualStyleBackColor = false;
-                    btnSatisYap.Font = new Font(Font.FontFamily, 11);
+                    btnSatisYap.Font = new Font(Font.FontFamily, 12);
                     btnSatisYap.BackColor = Color.Aquamarine;
                     break;
                 case "btnStokYonetimi":
                     btnStokYonetimi.UseVisualStyleBackColor = false;
-                    btnStokYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnStokYonetimi.Font = new Font(Font.FontFamily, 12);
                     btnStokYonetimi.BackColor = Color.Aquamarine;
                     break;
                 case "btnRaporYonetimi":
                     btnRaporYonetimi.UseVisualStyleBackColor = false;
-                    btnRaporYonetimi.Font = new Font(Font.FontFamily, 11);
+                    btnRaporYonetimi.Font = new Font(Font.FontFamily, 12);
                     btnRaporYonetimi.BackColor = Color.Aquamarine;
                     break;
                 case "btnCikis":
                     btnCikis.UseVisualStyleBackColor = false;
-                    btnCikis.Font = new Font(Font.FontFamily, 11);
+                    btnCikis.Font = new Font(Font.FontFamily, 12);
                     btnCikis.BackColor = Color.Aquamarine;
                     break;
                 default:
