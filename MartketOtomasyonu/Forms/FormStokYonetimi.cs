@@ -40,9 +40,9 @@ namespace MartketOtomasyonu.Forms
         {
             var seciliUrun = lstUrunler.SelectedItem as StokViewModel;
             lblStok.Text = seciliUrun.Stok.ToString();
-            if (seciliUrun.Stok == 0)
+            if (seciliUrun.Stok >= 0 && seciliUrun.Stok <=10)
                 lblStok.BackColor = Color.Red;
-            else if (seciliUrun.Stok > 0 && seciliUrun.Stok < 20)
+            else if (seciliUrun.Stok > 10 && seciliUrun.Stok <= 20)
                 lblStok.BackColor = Color.Yellow;
             else
                 lblStok.BackColor = Color.Green;
@@ -56,9 +56,10 @@ namespace MartketOtomasyonu.Forms
                 if (lstUrunler.SelectedItem == null) return;
                 var seciliUrun = lstUrunler.SelectedItem as StokViewModel;
                 var urun = db.Urunler.Find(seciliUrun.UrunID);
-                urun.Stok += short.Parse(txtStok.Text);
+                urun.Stok += short.Parse(txtStok.Text);                
                 db.SaveChanges();
                 VerileriGetir();
+                txtStok.Clear();
             }
             catch (Exception ex)
             {
