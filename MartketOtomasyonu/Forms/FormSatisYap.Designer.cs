@@ -37,28 +37,28 @@
             this.txtAra = new System.Windows.Forms.TextBox();
             this.btnSepeteEkle = new System.Windows.Forms.Button();
             this.lstSepet = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sepettenÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstUrunler = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtBarkod = new System.Windows.Forms.TextBox();
             this.lblStok = new System.Windows.Forms.Label();
             this.btnSatisYap = new System.Windows.Forms.Button();
             this.gbOdeme = new System.Windows.Forms.GroupBox();
-            this.nNakit = new System.Windows.Forms.NumericUpDown();
+            this.nOdenenMiktar = new System.Windows.Forms.NumericUpDown();
             this.lblParaUstu = new System.Windows.Forms.Label();
             this.lblPara = new System.Windows.Forms.Label();
             this.lblOdenen = new System.Windows.Forms.Label();
             this.rbKredi = new System.Windows.Forms.RadioButton();
             this.rbNakit = new System.Windows.Forms.RadioButton();
             this.pbUrunResmi = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sepettenÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nmrToplam)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrIndirim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrKDV)).BeginInit();
-            this.gbOdeme.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nNakit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUrunResmi)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.gbOdeme.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nOdenenMiktar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUrunResmi)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -173,6 +173,21 @@
             this.lstSepet.Size = new System.Drawing.Size(271, 220);
             this.lstSepet.TabIndex = 15;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sepettenÇıkarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 28);
+            // 
+            // sepettenÇıkarToolStripMenuItem
+            // 
+            this.sepettenÇıkarToolStripMenuItem.Name = "sepettenÇıkarToolStripMenuItem";
+            this.sepettenÇıkarToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.sepettenÇıkarToolStripMenuItem.Text = "Sepetten Çıkar";
+            this.sepettenÇıkarToolStripMenuItem.Click += new System.EventHandler(this.sepettenÇıkarToolStripMenuItem_Click);
+            // 
             // lstUrunler
             // 
             this.lstUrunler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -229,7 +244,7 @@
             // 
             // gbOdeme
             // 
-            this.gbOdeme.Controls.Add(this.nNakit);
+            this.gbOdeme.Controls.Add(this.nOdenenMiktar);
             this.gbOdeme.Controls.Add(this.lblParaUstu);
             this.gbOdeme.Controls.Add(this.lblPara);
             this.gbOdeme.Controls.Add(this.lblOdenen);
@@ -245,23 +260,23 @@
             this.gbOdeme.TabStop = false;
             this.gbOdeme.Text = "Ödeme Şekli";
             // 
-            // nNakit
+            // nOdenenMiktar
             // 
-            this.nNakit.DecimalPlaces = 2;
-            this.nNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nNakit.Location = new System.Drawing.Point(165, 162);
-            this.nNakit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.nNakit.Maximum = new decimal(new int[] {
+            this.nOdenenMiktar.DecimalPlaces = 2;
+            this.nOdenenMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nOdenenMiktar.Location = new System.Drawing.Point(165, 162);
+            this.nOdenenMiktar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.nOdenenMiktar.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-            this.nNakit.Name = "nNakit";
-            this.nNakit.Size = new System.Drawing.Size(100, 26);
-            this.nNakit.TabIndex = 16;
-            this.nNakit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nNakit.Visible = false;
-            this.nNakit.ValueChanged += new System.EventHandler(this.nNakit_ValueChanged);
+            this.nOdenenMiktar.Name = "nOdenenMiktar";
+            this.nOdenenMiktar.Size = new System.Drawing.Size(100, 26);
+            this.nOdenenMiktar.TabIndex = 16;
+            this.nOdenenMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nOdenenMiktar.Visible = false;
+            this.nOdenenMiktar.ValueChanged += new System.EventHandler(this.nOdenenMiktar_ValueChanged);
             // 
             // lblParaUstu
             // 
@@ -332,21 +347,6 @@
             this.pbUrunResmi.TabIndex = 29;
             this.pbUrunResmi.TabStop = false;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sepettenÇıkarToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 28);
-            // 
-            // sepettenÇıkarToolStripMenuItem
-            // 
-            this.sepettenÇıkarToolStripMenuItem.Name = "sepettenÇıkarToolStripMenuItem";
-            this.sepettenÇıkarToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
-            this.sepettenÇıkarToolStripMenuItem.Text = "Sepetten Çıkar";
-            this.sepettenÇıkarToolStripMenuItem.Click += new System.EventHandler(this.sepettenÇıkarToolStripMenuItem_Click);
-            // 
             // FormSatisYap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -374,11 +374,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmrToplam)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrIndirim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrKDV)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.gbOdeme.ResumeLayout(false);
             this.gbOdeme.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nNakit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nOdenenMiktar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUrunResmi)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,7 +405,7 @@
         private System.Windows.Forms.Label lblParaUstu;
         private System.Windows.Forms.Label lblPara;
         private System.Windows.Forms.Label lblOdenen;
-        private System.Windows.Forms.NumericUpDown nNakit;
+        private System.Windows.Forms.NumericUpDown nOdenenMiktar;
         private System.Windows.Forms.PictureBox pbUrunResmi;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem sepettenÇıkarToolStripMenuItem;

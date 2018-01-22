@@ -71,11 +71,11 @@ namespace MartketOtomasyonu.Forms
         private void FormSiparis_Load(object sender, EventArgs e)
         {
             VerileriGetir();
-            nNakit.TextChanged += new EventHandler(nNakit_TextChanged);
+            nOdenenMiktar.TextChanged += new EventHandler(nNakit_TextChanged);
         }
         private void nNakit_TextChanged(object sender, EventArgs e)
         {
-            lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
+            lblParaUstu.Text = $"{nOdenenMiktar.Value - nmrToplam.Value:c2}";
         }
 
 
@@ -199,12 +199,12 @@ namespace MartketOtomasyonu.Forms
             {
                 rbKredi.Checked = false;
                 lblOdenen.Visible = true;
-                nNakit.Visible = true;
-                nNakit.ReadOnly = false;
+                nOdenenMiktar.Visible = true;
+                nOdenenMiktar.ReadOnly = false;
                 lblPara.Visible = true;
                 lblParaUstu.Visible = true;
-                nNakit.ResetText();
-                nNakit.Controls[0].Visible = true;
+                nOdenenMiktar.ResetText();
+                nOdenenMiktar.Controls[0].Visible = true;
             }
 
         }
@@ -217,17 +217,13 @@ namespace MartketOtomasyonu.Forms
                 lblOdenen.Visible = true;
                 lblPara.Visible = false;
                 lblParaUstu.Visible = false;
-                nNakit.Visible = true;
-                nNakit.ReadOnly = true;
-                nNakit.Value = nmrToplam.Value;
-                nNakit.Controls[0].Visible = false;
+                nOdenenMiktar.Visible = true;
+                nOdenenMiktar.ReadOnly = true;
+                nOdenenMiktar.Value = nmrToplam.Value;
+                nOdenenMiktar.Controls[0].Visible = false;
+                nOdenenMiktar.Value = nmrToplam.Value;
             }
 
-        }
-
-        private void nNakit_ValueChanged(object sender, EventArgs e)
-        {
-            lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
         }
 
         private void btnSatisYap_Click(object sender, EventArgs e)
@@ -242,7 +238,7 @@ namespace MartketOtomasyonu.Forms
                 MessageBox.Show("Ödeme şeklini seçiniz.");
                 return;
             }
-            if (rbNakit.Checked && nmrToplam.Value > nNakit.Value)
+            if (rbNakit.Checked && nmrToplam.Value > nOdenenMiktar.Value)
             {
                 MessageBox.Show("Girilen para yetersiz.");
                 return;
@@ -343,7 +339,15 @@ namespace MartketOtomasyonu.Forms
 
         private void nmrToplam_ValueChanged(object sender, EventArgs e)
         {
-            lblParaUstu.Text = $"{nNakit.Value - nmrToplam.Value:c2}";
+            if(rbNakit.Checked)
+                lblParaUstu.Text = $"{nOdenenMiktar.Value - nmrToplam.Value:c2}";
+            if (rbKredi.Checked)
+                nOdenenMiktar.Value = nmrToplam.Value;
+        }
+
+        private void nOdenenMiktar_ValueChanged(object sender, EventArgs e)
+        {
+            lblParaUstu.Text = $"{nOdenenMiktar.Value - nmrToplam.Value:c2}";
         }
     }
 }
