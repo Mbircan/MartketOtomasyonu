@@ -149,5 +149,21 @@ namespace MartketOtomasyonu.Forms
             formSatisDetaylari.lstSatisDetaylar.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             formSatisDetaylari.ShowDialog();
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int offset = 0;
+            for (int i = 0; i < lstSatislar.Items.Count; i++)
+            {
+                e.Graphics.DrawString(" " + lstSatislar.Items[i].SubItems[0].Text +" "+ lstSatislar.Items[i].SubItems[1].Text+" " + lstSatislar.Items[i].SubItems[2].Text +" "+ lstSatislar.Items[i].SubItems[3].Text, new Font("Arial Bold", 20),
+                new SolidBrush(Color.Black), 20, 20 + offset);
+                offset += 35;
+            }
+            
+        }
+        private void btnYazdır_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }

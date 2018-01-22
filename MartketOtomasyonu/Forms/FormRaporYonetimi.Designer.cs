@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRaporYonetimi));
             this.lstSatislar = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmDetay = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detaylarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtpIlk = new System.Windows.Forms.DateTimePicker();
             this.dtpSon = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,8 +44,9 @@
             this.btnGoruntule = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmDetay = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.detaylarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnYazdır = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.cmDetay.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +88,21 @@
             // 
             this.columnHeader3.Text = "Ödeme Şekli";
             this.columnHeader3.Width = 114;
+            // 
+            // cmDetay
+            // 
+            this.cmDetay.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmDetay.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detaylarToolStripMenuItem});
+            this.cmDetay.Name = "cmDetay";
+            this.cmDetay.Size = new System.Drawing.Size(135, 28);
+            // 
+            // detaylarToolStripMenuItem
+            // 
+            this.detaylarToolStripMenuItem.Name = "detaylarToolStripMenuItem";
+            this.detaylarToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
+            this.detaylarToolStripMenuItem.Text = "Detaylar";
+            this.detaylarToolStripMenuItem.Click += new System.EventHandler(this.detaylarToolStripMenuItem_Click);
             // 
             // dtpIlk
             // 
@@ -149,26 +168,37 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Bitiş";
             // 
-            // cmDetay
+            // btnYazdır
             // 
-            this.cmDetay.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmDetay.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detaylarToolStripMenuItem});
-            this.cmDetay.Name = "cmDetay";
-            this.cmDetay.Size = new System.Drawing.Size(135, 28);
+            this.btnYazdır.Location = new System.Drawing.Point(878, 486);
+            this.btnYazdır.Name = "btnYazdır";
+            this.btnYazdır.Size = new System.Drawing.Size(90, 31);
+            this.btnYazdır.TabIndex = 8;
+            this.btnYazdır.Text = "Yazdır";
+            this.btnYazdır.UseVisualStyleBackColor = true;
+            this.btnYazdır.Click += new System.EventHandler(this.btnYazdır_Click);
             // 
-            // detaylarToolStripMenuItem
+            // printDocument1
             // 
-            this.detaylarToolStripMenuItem.Name = "detaylarToolStripMenuItem";
-            this.detaylarToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
-            this.detaylarToolStripMenuItem.Text = "Detaylar";
-            this.detaylarToolStripMenuItem.Click += new System.EventHandler(this.detaylarToolStripMenuItem_Click);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // FormRaporYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1035, 544);
+            this.Controls.Add(this.btnYazdır);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnGoruntule);
@@ -178,7 +208,9 @@
             this.Controls.Add(this.dtpIlk);
             this.Controls.Add(this.lstSatislar);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "FormRaporYonetimi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rapor Sistemi";
             this.Load += new System.EventHandler(this.FormSiparisYonetimi_Load);
             this.cmDetay.ResumeLayout(false);
@@ -203,5 +235,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ContextMenuStrip cmDetay;
         private System.Windows.Forms.ToolStripMenuItem detaylarToolStripMenuItem;
+        private System.Windows.Forms.Button btnYazdır;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
