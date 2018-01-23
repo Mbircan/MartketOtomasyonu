@@ -13,7 +13,7 @@ namespace MartketOtomasyonu.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801230911551_a1"; }
+            get { return "201801230955051_a1"; }
         }
         
         string IMigrationMetadata.Source

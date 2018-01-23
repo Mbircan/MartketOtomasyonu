@@ -49,6 +49,13 @@ namespace MartketOtomasyonu.Forms
                 MessageBox.Show("Önce bir barkod oluşturmalısınız.");
                 return;
             }
+            MyContext db = new MyContext();
+            var sonuc = db.Urunler.Select(x => x.BarkodID).ToList();
+            if (sonuc.Contains(txtBarkod.Text))
+            {
+                MessageBox.Show("Bu barkod ile zaten bir ürün kayıtlıdır.");
+                return;
+            }
             try
             {
                 var seciliKategori = cmbKategori.SelectedItem as Kategori;
@@ -62,7 +69,7 @@ namespace MartketOtomasyonu.Forms
                      KDV=seciliKategori.KDV,
                     UrunResmi = resimDosyası                        
                 };
-                MyContext db = new MyContext();
+                //db = new MyContext();
                 db.Urunler.Add(urun);
                 db.SaveChanges();
 
