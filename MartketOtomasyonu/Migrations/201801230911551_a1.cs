@@ -28,7 +28,7 @@ namespace MartketOtomasyonu.Migrations
                         ÜrünAdı = c.String(name: "Ürün Adı", nullable: false, maxLength: 40),
                         Fiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Stok = c.Short(nullable: false),
-                        EklenmeZamani = c.DateTime(nullable: false),
+                        EklenmeZamani = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         UrunResmi = c.Binary(),
                         KDV = c.Decimal(nullable: false, precision: 18, scale: 2),
                         KategoriID = c.Int(nullable: false),
@@ -44,10 +44,11 @@ namespace MartketOtomasyonu.Migrations
                     {
                         SatisID = c.Int(nullable: false),
                         UrunID = c.Int(nullable: false),
-                        SatisTarihi = c.DateTime(nullable: false),
+                        SatisTarihi = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Adet = c.Int(nullable: false),
                         Fiyat = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Indirim = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        KDV = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.SatisID, t.UrunID })
                 .ForeignKey("dbo.Satislar", t => t.SatisID, cascadeDelete: true)
@@ -60,7 +61,7 @@ namespace MartketOtomasyonu.Migrations
                 c => new
                     {
                         SatisID = c.Int(nullable: false, identity: true),
-                        SatisTarihi = c.DateTime(nullable: false),
+                        SatisTarihi = c.DateTime(precision: 7, storeType: "datetime2"),
                         OdemeSekli = c.String(),
                     })
                 .PrimaryKey(t => t.SatisID);

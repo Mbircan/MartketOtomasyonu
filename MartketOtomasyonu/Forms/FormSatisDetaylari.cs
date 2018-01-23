@@ -16,5 +16,6 @@ namespace MartketOtomasyonu.Forms
         {
             InitializeComponent();
         }
+
     }
 }
