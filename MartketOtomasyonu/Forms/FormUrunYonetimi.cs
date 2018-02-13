@@ -69,7 +69,6 @@ namespace MartketOtomasyonu.Forms
                      KDV=seciliKategori.KDV,
                     UrunResmi = resimDosyası                        
                 };
-                //db = new MyContext();
                 db.Urunler.Add(urun);
                 db.SaveChanges();
 
